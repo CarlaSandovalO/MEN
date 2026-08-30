@@ -35,10 +35,8 @@ body{
     overflow:hidden;
 }
 
-/* BARRA DE PROGRESO */
-
 .progress{
-    height:6px;
+    height:4px;
     background:#e8edf3;
 }
 
@@ -50,21 +48,17 @@ body{
     transition:.25s;
 }
 
-/* PANTALLAS */
-
 .screen{
     display:none;
-    min-height:500px;
+    min-height:455px;
 }
 
 .screen.active{
     display:block;
 }
 
-/* PORTADA */
-
 .cover{
-    min-height:500px;
+    min-height:455px;
     padding:22px 28px 24px;
     display:flex;
     flex-direction:column;
@@ -113,37 +107,37 @@ body{
     width:54px;
     height:3px;
     background:#d08e2f;
-    margin:0 auto 12px;
+    margin:0 auto 14px;
 }
 
 .lead{
     width:100%;
     max-width:790px;
-    margin:0 auto 8px;
-    font-size:13px;
-    line-height:1.4;
+    margin:0 auto 10px;
+    font-size:14px;
+    line-height:1.5;
     color:#46576a;
 }
 
 .module{
-    margin-bottom:8px;
+    margin-bottom:14px;
+    font-size:15px;
+    line-height:1.5;
 }
 
 .note{
     width:100%;
     max-width:800px;
-    margin:10px auto 10px;
+    margin:18px auto 20px;
     background:#f7f9fc;
     border-left:4px solid #d08e2f;
     border-radius:7px;
-    padding:10px 13px;
+    padding:11px 14px;
     text-align:left;
     font-size:12px;
-    line-height:1.42;
+    line-height:1.45;
     color:#33465a;
 }
-
-/* BOTONES */
 
 .btn{
     border:0;
@@ -161,6 +155,7 @@ body{
 
 .btn.gold{
     background:#d08e2f;
+    margin-top:10px;
 }
 
 .btn.gold:hover{
@@ -172,8 +167,6 @@ body{
     color:#152c4a;
     border:1px solid #d7dfe7;
 }
-
-/* CABECERAS DE PREGUNTAS */
 
 .head{
     padding:14px 20px;
@@ -200,8 +193,6 @@ body{
     line-height:1.4;
 }
 
-/* CAMPOS */
-
 .content{
     padding:18px 20px;
 }
@@ -211,9 +202,9 @@ body{
     border:1px solid #cfd8e3;
     border-radius:8px;
     padding:10px 11px;
-    font:13px/2 'Montserrat',Arial,sans-serif;
+    font:13px/1.45 'Montserrat',Arial,sans-serif;
     color:#1b2d43;
-    min-height:100px;
+    min-height:88px;
     resize:vertical;
     background:#fff;
 }
@@ -240,8 +231,6 @@ body{
     outline:none;
 }
 
-/* NAVEGACIÓN INTERNA */
-
 .nav{
     display:flex;
     justify-content:space-between;
@@ -250,8 +239,6 @@ body{
     border-top:1px solid #e4e8ee;
     background:#fbfcfd;
 }
-
-/* RESUMEN */
 
 .summary{
     padding:18px 20px;
@@ -321,8 +308,6 @@ body{
     display:none;
 }
 
-/* RESPONSIVE */
-
 @media(max-width:700px){
 
     body{
@@ -330,16 +315,16 @@ body{
     }
 
     .screen{
-        min-height:550px;
+        min-height:450px;
     }
 
     .cover{
-        min-height:550px;
+        min-height:450px;
         padding:16px 12px 20px;
     }
 
     .course{
-        font-size:11px;
+        font-size:9.8px;
         margin-bottom:7px;
     }
 
@@ -358,19 +343,24 @@ body{
     }
 
     .goldline{
-        margin-bottom:9px;
+        margin-bottom:10px;
     }
 
     .lead{
         font-size:12px;
-        line-height:1.5;
-        margin-bottom:6px;
+        line-height:1.4;
+        margin-bottom:8px;
+    }
+
+    .module{
+        font-size:13px;
+        margin-bottom:10px;
     }
 
     .note{
-        font-size:11px;
+        font-size:10.8px;
         padding:8px 10px;
-        margin:8px auto;
+        margin:12px auto 14px;
     }
 
     .head,
@@ -390,8 +380,6 @@ body{
         font-size:11.5px;
     }
 }
-
-/* PDF */
 
 @media print{
 
@@ -549,8 +537,6 @@ body{
 <span id="prog"></span>
 </div>
 
-<!-- PORTADA -->
-
 <section class="screen active">
 
 <div class="cover">
@@ -588,180 +574,96 @@ Comenzar →
 
 </section>
 
-<!-- 1 -->
-
 <section class="screen">
-
 <div class="head">
 <div class="kicker">1 · Improntas</div>
 <h2>Reconoce aprendizajes que permanecen</h2>
 <p>Describe tres improntas que identificas en tu forma de negociar.</p>
 </div>
-
 <div class="content">
-
 <div class="linefields">
-
-<div class="linefield">
-<span>1.</span>
-<input id="im1">
+<div class="linefield"><span>1.</span><input id="im1"></div>
+<div class="linefield"><span>2.</span><input id="im2"></div>
+<div class="linefield"><span>3.</span><input id="im3"></div>
 </div>
-
-<div class="linefield">
-<span>2.</span>
-<input id="im2">
 </div>
-
-<div class="linefield">
-<span>3.</span>
-<input id="im3">
-</div>
-
-</div>
-
-</div>
-
 <div class="nav">
 <button class="btn secondary" onclick="back()">← Anterior</button>
 <button class="btn" onclick="next()">Siguiente →</button>
 </div>
-
 </section>
 
-<!-- 2 -->
-
 <section class="screen">
-
 <div class="head">
 <div class="kicker">2 · Estilos aprendidos</div>
 <h2>Observa lo aprendido en casa</h2>
 <p>Señala tres estilos de negociación que hayas observado en casa.</p>
 </div>
-
 <div class="content">
-
 <div class="linefields">
-
-<div class="linefield">
-<span>1.</span>
-<input id="es1">
+<div class="linefield"><span>1.</span><input id="es1"></div>
+<div class="linefield"><span>2.</span><input id="es2"></div>
+<div class="linefield"><span>3.</span><input id="es3"></div>
 </div>
-
-<div class="linefield">
-<span>2.</span>
-<input id="es2">
 </div>
-
-<div class="linefield">
-<span>3.</span>
-<input id="es3">
-</div>
-
-</div>
-
-</div>
-
 <div class="nav">
 <button class="btn secondary" onclick="back()">← Anterior</button>
 <button class="btn" onclick="next()">Siguiente →</button>
 </div>
-
 </section>
 
-<!-- 3 -->
-
 <section class="screen">
-
 <div class="head">
 <div class="kicker">3 · Opuesto Complemento Difícil</div>
 <h2>Piensa en una interacción actual</h2>
 <p>Describe, sin indicar su nombre, un Opuesto Complemento Difícil (OCD) con quien interactúas actualmente.</p>
 </div>
-
 <div class="content">
-
-<textarea
-class="field"
-id="ocd"
-placeholder="Escribe aquí tu reflexión..."></textarea>
-
+<textarea class="field" id="ocd" placeholder="Escribe aquí tu reflexión..."></textarea>
 </div>
-
 <div class="nav">
 <button class="btn secondary" onclick="back()">← Anterior</button>
 <button class="btn" onclick="next()">Siguiente →</button>
 </div>
-
 </section>
 
-<!-- 4 -->
-
 <section class="screen">
-
 <div class="head">
 <div class="kicker">4 · Creencias que pueden limitarte</div>
 <h2>Identifica posibles límites</h2>
 <p>Enumera dos creencias que consideras que pueden limitarte para ser un mejor negociador.</p>
 </div>
-
 <div class="content">
-
-<textarea
-class="field"
-id="beliefs"
-placeholder="1. ...
+<textarea class="field" id="beliefs" placeholder="1. ...
 2. ..."></textarea>
-
 </div>
-
 <div class="nav">
 <button class="btn secondary" onclick="back()">← Anterior</button>
 <button class="btn" onclick="next()">Siguiente →</button>
 </div>
-
 </section>
 
-<!-- 5 -->
-
 <section class="screen">
-
 <div class="head">
 <div class="kicker">5 · Mirando hacia adelante</div>
 <h2>Define qué deseas fortalecer</h2>
 <p>Identifica dos aspectos puntuales que te gustaría aprender o fortalecer para mejorar tus futuras negociaciones.</p>
 </div>
-
 <div class="content">
-
-<textarea
-class="field"
-id="future"
-placeholder="1. ...
+<textarea class="field" id="future" placeholder="1. ...
 2. ..."></textarea>
-
 </div>
-
 <div class="nav">
 <button class="btn secondary" onclick="back()">← Anterior</button>
 <button class="btn" onclick="finish()">Ver mis respuestas →</button>
 </div>
-
 </section>
 
-<!-- RESUMEN -->
-
 <section class="screen">
-
 <div class="summary">
-
-<div class="kicker" style="text-align:center">
-Kit del Negociador
-</div>
-
+<div class="kicker" style="text-align:center">Kit del Negociador</div>
 <h2>Tu punto de partida</h2>
-
 <p>Revisa tus respuestas antes de guardarlas.</p>
-
 <div class="preview" id="preview"></div>
 
 <div class="footer-msg">
@@ -769,23 +671,14 @@ Guarda esta ficha junto con los demás recursos que irás generando en tu Kit de
 </div>
 
 <div class="actions">
-
-<button class="btn secondary" onclick="back()">
-← Revisar
-</button>
-
-<button class="btn gold" onclick="printAnswers()">
-Guardar respuestas en PDF
-</button>
-
+<button class="btn secondary" onclick="back()">← Revisar</button>
+<button class="btn gold" onclick="printAnswers()">Guardar respuestas en PDF</button>
 </div>
 
 <p class="small">
 Al seleccionar “Guardar respuestas en PDF”, utiliza la opción “Guardar como PDF” de tu navegador.
 </p>
-
 </div>
-
 </section>
 
 </div>
@@ -795,295 +688,213 @@ Al seleccionar “Guardar respuestas en PDF”, utiliza la opción “Guardar co
 <script>
 
 const screens=[...document.querySelectorAll('.screen')];
-
 let current=0;
-
 const prog=document.getElementById('prog');
 
 function show(i){
-
-current=Math.max(
-0,
-Math.min(i,screens.length-1)
-);
-
-screens.forEach(
-(s,n)=>s.classList.toggle('active',n===current)
-);
-
-prog.style.width=
-(current/(screens.length-1)*100)+'%';
-
-window.scrollTo({
-top:0,
-behavior:'smooth'
-});
-
+    current=Math.max(0,Math.min(i,screens.length-1));
+    screens.forEach((s,n)=>s.classList.toggle('active',n===current));
+    prog.style.width=(current/(screens.length-1)*100)+'%';
+    window.scrollTo({top:0,behavior:'smooth'});
 }
 
 function go(i){
-show(i);
+    show(i);
 }
 
 function next(){
-show(current+1);
+    show(current+1);
 }
 
 function back(){
-show(current-1);
+    show(current-1);
 }
 
-const val=id=>
-(document.getElementById(id)?.value||'').trim();
+const val=id=>(document.getElementById(id)?.value||'').trim();
 
-const esc=s=>
-(s||'Sin respuesta').replace(
-/[&<>]/g,
-m=>({
-'&':'&amp;',
-'<':'&lt;',
-'>':'&gt;'
-}[m])
+const esc=s=>(s||'Sin respuesta').replace(
+    /[&<>]/g,
+    m=>({
+        '&':'&amp;',
+        '<':'&lt;',
+        '>':'&gt;'
+    }[m])
 );
 
 function answers(){
-
-return{
-
-im:[
-val('im1'),
-val('im2'),
-val('im3')
-],
-
-es:[
-val('es1'),
-val('es2'),
-val('es3')
-],
-
-ocd:val('ocd'),
-
-beliefs:val('beliefs'),
-
-future:val('future')
-
-};
-
+    return{
+        im:[val('im1'),val('im2'),val('im3')],
+        es:[val('es1'),val('es2'),val('es3')],
+        ocd:val('ocd'),
+        beliefs:val('beliefs'),
+        future:val('future')
+    };
 }
 
 function finish(){
 
-const a=answers();
+    const a=answers();
 
-document.getElementById('preview').innerHTML=`
+    document.getElementById('preview').innerHTML=`
 
-<h3>1. Improntas</h3>
+    <h3>1. Improntas</h3>
+    <div class="ans">
+    ${a.im.map((x,i)=>`${i+1}. ${esc(x)}`).join('\n')}
+    </div>
 
-<div class="ans">
-${a.im.map((x,i)=>`${i+1}. ${esc(x)}`).join('\n')}
-</div>
+    <h3>2. Estilos aprendidos</h3>
+    <div class="ans">
+    ${a.es.map((x,i)=>`${i+1}. ${esc(x)}`).join('\n')}
+    </div>
 
-<h3>2. Estilos aprendidos</h3>
+    <h3>3. Opuesto Complemento Difícil (OCD)</h3>
+    <div class="ans">${esc(a.ocd)}</div>
 
-<div class="ans">
-${a.es.map((x,i)=>`${i+1}. ${esc(x)}`).join('\n')}
-</div>
+    <h3>4. Creencias que pueden limitarte</h3>
+    <div class="ans">${esc(a.beliefs)}</div>
 
-<h3>3. Opuesto Complemento Difícil (OCD)</h3>
+    <h3>5. Mirando hacia adelante</h3>
+    <div class="ans">${esc(a.future)}</div>
+    `;
 
-<div class="ans">
-${esc(a.ocd)}
-</div>
-
-<h3>4. Creencias que pueden limitarte</h3>
-
-<div class="ans">
-${esc(a.beliefs)}
-</div>
-
-<h3>5. Mirando hacia adelante</h3>
-
-<div class="ans">
-${esc(a.future)}
-</div>
-
-`;
-
-show(screens.length-1);
-
+    show(screens.length-1);
 }
-
-/* PDF */
 
 function printAnswers(){
 
-const a=answers();
+    const a=answers();
 
-const date=
-new Date().toLocaleDateString('es-GT');
+    const date=new Date().toLocaleDateString('es-GT');
 
-const logo='ryb_logo.png';
+    const logo='ryb_logo.png';
 
-const header=`
+    const header=`
 
-<div class="print-header">
+    <div class="print-header">
 
-<img
-class="print-logo"
-src="${logo}"
-alt="RyB Ideas">
+    <img class="print-logo" src="${logo}" alt="RyB Ideas">
 
-<div class="print-title">
+    <div class="print-title">
 
-<div class="c">
-Certificación en Modelo Estratégico de Negociación
-</div>
+    <div class="c">
+    Certificación en Modelo Estratégico de Negociación
+    </div>
 
-<h1>
-Explora tu forma de negociar
-</h1>
+    <h1>Explora tu forma de negociar</h1>
 
-<h2>
-KIT DEL NEGOCIADOR · MÓDULO 2
-</h2>
+    <h2>KIT DEL NEGOCIADOR · MÓDULO 2</h2>
 
-</div>
+    </div>
 
-<div class="print-meta">
-Fecha<br>
-<strong>${date}</strong>
-</div>
+    <div class="print-meta">
+    Fecha<br>
+    <strong>${date}</strong>
+    </div>
 
-</div>
+    </div>
+    `;
 
-`;
+    document.getElementById('printSheet').innerHTML=`
 
-document.getElementById('printSheet').innerHTML=`
+    <div class="print-page">
 
-<div class="print-page">
+    ${header}
 
-${header}
+    <div class="print-intro">
+    <strong>Mi punto de partida como negociador.</strong>
+    Antes de avanzar con la estructura del modelo, reconoce algunos aspectos que hoy influyen en tu manera de negociar.
+    </div>
 
-<div class="print-intro">
-<strong>Mi punto de partida como negociador.</strong>
-Antes de avanzar con la estructura del modelo, reconoce algunos aspectos que hoy influyen en tu manera de negociar.
-</div>
+    <div class="print-section">
 
-<div class="print-section">
+    <h3>1. Improntas</h3>
 
-<h3>1. Improntas</h3>
+    <p>Describe tres improntas que identificas en tu forma de negociar.</p>
 
-<p>
-Describe tres improntas que identificas en tu forma de negociar.
-</p>
+    <div class="print-lines">
+    ${a.im.map((x,i)=>`
+    <div class="print-line">
+    ${i+1}. ${esc(x)}
+    </div>`).join('')}
+    </div>
 
-<div class="print-lines">
+    </div>
 
-${a.im.map(
-(x,i)=>`
-<div class="print-line">
-${i+1}. ${esc(x)}
-</div>`
-).join('')}
+    <div class="print-section">
 
-</div>
+    <h3>2. Estilos aprendidos</h3>
 
-</div>
+    <p>Señala tres estilos de negociación que hayas observado en casa.</p>
 
-<div class="print-section">
+    <div class="print-lines">
+    ${a.es.map((x,i)=>`
+    <div class="print-line">
+    ${i+1}. ${esc(x)}
+    </div>`).join('')}
+    </div>
 
-<h3>2. Estilos aprendidos</h3>
+    </div>
 
-<p>
-Señala tres estilos de negociación que hayas observado en casa.
-</p>
+    <div class="print-section">
 
-<div class="print-lines">
+    <h3>3. Opuesto Complemento Difícil (OCD)</h3>
 
-${a.es.map(
-(x,i)=>`
-<div class="print-line">
-${i+1}. ${esc(x)}
-</div>`
-).join('')}
+    <p>
+    Describe, sin indicar su nombre, un OCD con quien interactúas actualmente.
+    </p>
 
-</div>
+    <div class="print-answer">
+    ${esc(a.ocd)}
+    </div>
 
-</div>
+    </div>
 
-<div class="print-section">
+    <div class="page-number">1</div>
 
-<h3>
-3. Opuesto Complemento Difícil (OCD)
-</h3>
+    </div>
 
-<p>
-Describe, sin indicar su nombre, un OCD con quien interactúas actualmente.
-</p>
+    <div class="print-page">
 
-<div class="print-answer">
-${esc(a.ocd)}
-</div>
+    ${header}
 
-</div>
+    <div class="print-section">
 
-<div class="page-number">
-1
-</div>
+    <h3>4. Creencias que pueden limitarte</h3>
 
-</div>
+    <p>
+    Enumera dos creencias que consideras que pueden limitarte para ser un mejor negociador.
+    </p>
 
-<div class="print-page">
+    <div class="print-answer">
+    ${esc(a.beliefs)}
+    </div>
 
-${header}
+    </div>
 
-<div class="print-section">
+    <div class="print-section">
 
-<h3>
-4. Creencias que pueden limitarte
-</h3>
+    <h3>5. Mirando hacia adelante</h3>
 
-<p>
-Enumera dos creencias que consideras que pueden limitarte para ser un mejor negociador.
-</p>
+    <p>
+    Identifica dos aspectos puntuales que te gustaría aprender o fortalecer para mejorar tus futuras negociaciones.
+    </p>
 
-<div class="print-answer">
-${esc(a.beliefs)}
-</div>
+    <div class="print-answer">
+    ${esc(a.future)}
+    </div>
 
-</div>
+    </div>
 
-<div class="print-section">
+    <div class="print-message">
+    Guarda esta ficha junto con los demás recursos que irás generando en tu Kit del Negociador en los siguientes módulos. Más adelante podrás volver a ella para reconocer cambios, aprendizajes y aspectos que aún deseas fortalecer, o incluso volver a completarla con nuevos aprendizajes y experiencias.
+    </div>
 
-<h3>
-5. Mirando hacia adelante
-</h3>
+    <div class="page-number">2</div>
 
-<p>
-Identifica dos aspectos puntuales que te gustaría aprender o fortalecer para mejorar tus futuras negociaciones.
-</p>
+    </div>
+    `;
 
-<div class="print-answer">
-${esc(a.future)}
-</div>
-
-</div>
-
-<div class="print-message">
-Guarda esta ficha junto con los demás recursos que irás generando en tu Kit del Negociador en los siguientes módulos. Más adelante podrás volver a ella para reconocer cambios, aprendizajes y aspectos que aún deseas fortalecer, o incluso volver a completarla con nuevos aprendizajes y experiencias.
-</div>
-
-<div class="page-number">
-2
-</div>
-
-</div>
-
-`;
-
-window.print();
-
+    window.print();
 }
 
 </script>
