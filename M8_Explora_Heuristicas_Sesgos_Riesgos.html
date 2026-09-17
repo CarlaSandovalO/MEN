@@ -102,7 +102,7 @@ function finish(){
  const chosen=[];
  for(let i=0;i<10;i++){const ix=+document.getElementById('b'+i).value;chosen.push((i+1)+'. '+data[ix][0]+' - '+val('e'+i))}
  const prot=[...document.querySelectorAll('.protector input:checked')].map(x=>x.value);
- sum.textContent='SES GOS / HEURÍSTICAS QUE NECESITO VIGILAR\n\n'+chosen.join('\n')+'\n\nMECANISMOS DE PROTECCIÓN\n'+(prot.join(', ')||'Sin seleccionar')+'\n\nMAYOR ATENCIÓN\n'+val('priority')+'\n\nACCIÓN ANTES DE DECIDIR\n'+val('action');
+ sum.textContent='SESGOS / HEURÍSTICAS QUE NECESITO VIGILAR\n\n'+chosen.join('\n')+'\n\nMECANISMOS DE PROTECCIÓN\n'+(prot.join(', ')||'Sin seleccionar')+'\n\nMAYOR ATENCIÓN\n'+val('priority')+'\n\nACCIÓN ANTES DE DECIDIR\n'+val('action');
  go(3);
 }
 go(0);
