@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>M8 · Heurísticas, sesgos y riesgos</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;padding:5px;background:#f5f7fa;font-family:Montserrat,Arial,sans-serif;color:#152c4a}
+.app{max-width:960px;margin:auto;background:#fff;border:1px solid #dfe5ec;border-radius:12px;overflow:hidden}
+.progress{height:4px;background:#e8edf3}.progress span{display:block;height:100%;background:#d08e2f;width:0;transition:.25s}
+.screen{display:none;min-height:450px}.screen.active{display:block}
+.cover{min-height:450px;padding:28px;text-align:center;display:flex;flex-direction:column;justify-content:center}
+.course{font-size:11px;color:#607184;font-weight:600}.row{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0 8px}.row h1{font-size:22px;margin:0}
+.tag{background:#d08e2f;color:#fff;padding:5px 10px;border-radius:6px;font-size:10px;font-weight:700}.line{width:54px;height:3px;background:#d08e2f;margin:0 auto 16px}
+.lead{font-size:14px;color:#46576a;line-height:1.5;max-width:800px;margin:0 auto 12px}.note{background:#f7f9fc;border-left:4px solid #d08e2f;border-radius:7px;padding:10px 13px;font-size:12px;text-align:left;max-width:820px;margin:10px auto 18px}
+.head{padding:13px 20px;border-bottom:1px solid #e4e8ee}.head b{font-size:11px;color:#d08e2f;text-transform:uppercase}.head h2{font-size:19px;margin:4px 0}.head p{font-size:12px;color:#607184;margin:0;line-height:1.45}
+.content{padding:15px 20px}.field{width:100%;min-height:60px;border:1px solid #cfd8e3;border-radius:8px;padding:8px;font:12.5px/1.45 Montserrat;resize:vertical}
+.rowitem{display:grid;grid-template-columns:34px 1fr 1.4fr;gap:7px;align-items:start;margin-bottom:7px}
+.rowitem .n{font-size:11px;font-weight:700;padding-top:8px}.rowitem select,.rowitem textarea{width:100%;border:1px solid #cfd8e3;border-radius:7px;padding:7px;font:11.5px Montserrat;background:#fff}.rowitem textarea{min-height:52px;resize:vertical}
+.feedback{border:1px solid #e0e5eb;border-radius:9px;padding:10px 12px;background:#fcfdff;margin-top:9px}.feedback h3{margin:0 0 5px;font-size:13.5px}.feedback p{margin:3px 0;font-size:11.5px;line-height:1.45;color:#405368}.feedback strong{color:#d08e2f}
+.protectors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.protector{border:1px solid #dce3eb;border-radius:8px;padding:9px;background:#fbfcfd;font-size:11.5px}.protector input{margin-right:7px}
+.nav{display:flex;justify-content:space-between;padding:10px 20px;border-top:1px solid #e4e8ee;background:#fbfcfd}.btn{border:0;border-radius:8px;background:#152c4a;color:#fff;padding:8px 14px;font-weight:700;cursor:pointer;width:auto}.secondary{background:#eef2f6;color:#152c4a}.gold{background:#d08e2f}
+.summary{padding:16px 20px}.preview{border:1px solid #e0e5eb;border-radius:9px;padding:11px;background:#fcfdff;max-height:270px;overflow:auto;font-size:11.5px;white-space:pre-wrap}
+@media(max-width:700px){.cover{padding:20px 12px}.row h1{font-size:18px}.head,.content,.nav{padding-left:12px;padding-right:12px}.nav{position:sticky;bottom:0}.rowitem{grid-template-columns:28px 1fr}.rowitem textarea{grid-column:2}.protectors{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="progress"><span id="prog"></span></div>
+
+<section class="screen active">
+<div class="cover">
+<div class="course">Certificación en Modelo Estratégico de Negociación</div>
+<div class="row"><h1>Explora tu forma de negociar</h1><span class="tag">KIT DEL NEGOCIADOR</span></div>
+<div class="line"></div>
+<p class="lead"><b>Módulo 8 · Heurísticas, sesgos y riesgos</b></p>
+<p class="lead">Identifica los atajos mentales que más afectan tus decisiones y define cómo contenerlos antes de negociar.</p>
+<div class="note"><strong>Recuerda:</strong> una heurística no es un error por sí misma. El riesgo aparece cuando opera de forma automática y termina distorsionando el juicio, el NBN o la FON.</div>
+<button class="btn gold" onclick="go(1)">Comenzar →</button>
+</div>
+</section>
+
+<section class="screen">
+<div class="head"><b>Práctica</b><h2>Clasifica tus 10 sesgos o heurísticas</h2><p>Selecciona diez que reconozcas en tu forma de negociar y escribe cómo te afectan.</p></div>
+<div class="content">
+<div id="biasRows"></div>
+<div id="biasMsg" class="feedback"><p>Evita repetir opciones. La selección debe reflejar tu propia autoobservación.</p></div>
+</div>
+<div class="nav"><button class="btn secondary" onclick="back()">← Anterior</button><button class="btn" onclick="reviewBiases()">Revisar →</button></div>
+</section>
+
+<section class="screen">
+<div class="head"><b>Sistema de defensa</b><h2>Define cómo activar el Sistema 2</h2><p>Selecciona los mecanismos que necesitas reforzar.</p></div>
+<div class="content">
+<div class="protectors">
+<label class="protector"><input type="checkbox" value="NBN">NBN</label>
+<label class="protector"><input type="checkbox" value="Principios">Principios</label>
+<label class="protector"><input type="checkbox" value="Criterios objetivos">Criterios objetivos</label>
+<label class="protector"><input type="checkbox" value="Gestión emocional">Gestión emocional</label>
+</div>
+<div class="feedback"><p><strong>Recuerda:</strong> el NBN protege contra decisiones impulsivas; los criterios objetivos reducen subjetividad; la gestión emocional regula la activación automática. Los principios sostienen tus límites durante la decisión.</p></div>
+<label><b>¿Qué sesgo necesitas vigilar con mayor atención?</b></label><textarea id="priority" class="field"></textarea>
+<label><b>¿Qué pausa, criterio o límite aplicarás antes de decidir?</b></label><textarea id="action" class="field"></textarea>
+</div>
+<div class="nav"><button class="btn secondary" onclick="back()">← Anterior</button><button class="btn" onclick="finish()">Ver síntesis →</button></div>
+</section>
+
+<section class="screen">
+<div class="summary">
+<h2>Mi mapa de sesgos y protección</h2>
+<div id="sum" class="preview"></div>
+<div class="feedback"><p><strong>Recuerda:</strong> negociar bien no es eliminar los atajos mentales, sino reconocerlos, anticiparlos y activar pausas, estructura y mecanismos de protección antes de que gobiernen la mesa.</p></div>
+</div>
+<div class="nav"><button class="btn secondary" onclick="back()">← Anterior</button><span></span></div>
+</section>
+</div>
+
+<script>
+const data=[["Heurística de anclaje","El primer precio, oferta, plazo o versión de los hechos domina el análisis y puede alejarte del NBN."],["Heurística de disponibilidad","Experiencias recientes o llamativas pesan demasiado y pueden reducir la exploración de nuevas FON."],["Aversión a la pérdida","El temor a perder puede llevarte a evitar opciones valiosas o mantener acuerdos desfavorables."],["Escalada del compromiso","Persistes para justificar lo ya invertido y puedes terminar por debajo del NBN."],["Efecto halo","Una impresión favorable del O.C. puede reducir el análisis crítico de la propuesta."],["Sesgo de exceso de confianza","Puedes sobreestimar tu capacidad para controlar o predecir el resultado."],["Sesgo de confirmación","Buscas información que valide tu idea inicial y desestimas señales contradictorias."],["Ilusión de control","Una planificación extensa puede hacerte subestimar la incertidumbre real."],["Sesgo de optimismo","Sobreestimas la probabilidad de éxito y minimizas obstáculos."],["Sesgo de novedad","Das más valor a lo nuevo que a soluciones ya probadas."],["Heurística del afecto","La emoción que te genera una persona puede influir en la evaluación de su propuesta."],["Sesgo de reciprocidad","Puedes sentir obligación de devolver favores o concesiones y entregar más de lo conveniente."],["Sesgo de dominancia","Puedes asociar presión y autoridad con mayor probabilidad de ganar."],["Sesgo de superioridad ilusoria","Puedes subestimar capacidades y reacciones del O.C."],["Sesgo de poder","Jerarquía o recursos pueden reducir empatía y sensibilidad a consecuencias relacionales."],["Percepción de suma cero","Asumes que lo que una parte gana, la otra necesariamente lo pierde."],["Aversión al riesgo","Puedes preferir opciones seguras aunque reduzcan el valor potencial."],["Sesgo de evitación / inacción","No decidir puede parecer más seguro que asumir una decisión visible."],["Parálisis por análisis","El análisis se convierte en refugio y retrasa decisiones necesarias."],["Reactancia psicológica","Aumenta la oposición cuando percibes pérdida de libertad."],["Sesgo anti-autoridad","Desconfías de forma sistemática de jerarquías o marcos establecidos."],["Sesgo de saliencia","Atiendes más a lo visible o llamativo que a información crítica menos destacada."],["Heurística de fluidez verbal","Un discurso claro puede parecer más sólido de lo que realmente es."],["Heurística somática","Sensaciones corporales pueden pesar más que el análisis estratégico."]];
+const screens=[...document.querySelectorAll('.screen')];let idx=0;
+function go(n){idx=Math.max(0,Math.min(screens.length-1,n));screens.forEach((s,i)=>s.classList.toggle('active',i===idx));prog.style.width=(idx/(screens.length-1)*100)+'%';scrollTo(0,0)}
+function back(){go(idx-1)}
+const opts='<option value="">Selecciona</option>'+data.map((x,i)=>'<option value="'+i+'">'+x[0]+'</option>').join('');
+biasRows.innerHTML=Array.from({length:10},(_,i)=>'<div class="rowitem"><div class="n">'+(i+1)+'.</div><select id="b'+i+'" onchange="showHint('+i+')">'+opts+'</select><textarea id="e'+i+'" placeholder="Cómo afecta"></textarea></div><div id="h'+i+'" class="feedback" style="display:none"></div>').join('');
+
+function showHint(i){
+ const s=document.getElementById('b'+i); const h=document.getElementById('h'+i);
+ if(s.value===''){h.style.display='none';return}
+ h.style.display='block';h.innerHTML='<p><strong>Recuerda:</strong> '+data[+s.value][1]+'</p>';
+}
+function reviewBiases(){
+ const vals=[];let ok=true;
+ for(let i=0;i<10;i++){const v=document.getElementById('b'+i).value;if(v==='')ok=false;vals.push(v)}
+ if(!ok){biasMsg.innerHTML='<p>Completa las 10 selecciones antes de continuar.</p>';return}
+ if(new Set(vals).size!==10){biasMsg.innerHTML='<p>Hay opciones repetidas. Selecciona diez sesgos o heurísticas diferentes.</p>';return}
+ biasMsg.innerHTML='<p><strong>Recuerda:</strong> una heurística puede ser útil; el problema aparece cuando el atajo no se ajusta al contexto o pasa inadvertido.</p>';
+ go(2);
+}
+function val(id){return document.getElementById(id)?.value||''}
+function finish(){
+ const chosen=[];
+ for(let i=0;i<10;i++){const ix=+document.getElementById('b'+i).value;chosen.push((i+1)+'. '+data[ix][0]+' - '+val('e'+i))}
+ const prot=[...document.querySelectorAll('.protector input:checked')].map(x=>x.value);
+ sum.textContent='SES GOS / HEURÍSTICAS QUE NECESITO VIGILAR\n\n'+chosen.join('\n')+'\n\nMECANISMOS DE PROTECCIÓN\n'+(prot.join(', ')||'Sin seleccionar')+'\n\nMAYOR ATENCIÓN\n'+val('priority')+'\n\nACCIÓN ANTES DE DECIDIR\n'+val('action');
+ go(3);
+}
+go(0);
+</script>
+</body>
+</html>
