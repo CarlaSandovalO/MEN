@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>M5 · ¿Qué encontramos en la mesa?</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;padding:5px;background:#f5f7fa;font-family:Montserrat,Arial,sans-serif;color:#152c4a}
+.app{max-width:960px;margin:auto;background:#fff;border:1px solid #dfe5ec;border-radius:12px;overflow:hidden}
+.progress{height:4px;background:#e8edf3}.progress span{display:block;height:100%;background:#d08e2f;width:0;transition:.25s}
+.screen{display:none;min-height:450px}.screen.active{display:block}
+.cover{min-height:450px;padding:28px;text-align:center;display:flex;flex-direction:column;justify-content:center}
+.course{font-size:11px;color:#607184;font-weight:600}
+.row{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0 8px}.row h1{font-size:22px;margin:0}
+.tag{background:#d08e2f;color:#fff;padding:5px 10px;border-radius:6px;font-size:10px;font-weight:700}
+.line{width:54px;height:3px;background:#d08e2f;margin:0 auto 16px}
+.lead{font-size:14px;color:#46576a;line-height:1.5;max-width:800px;margin:0 auto 12px}
+.note{background:#f7f9fc;border-left:4px solid #d08e2f;border-radius:7px;padding:10px 13px;font-size:12px;text-align:left;max-width:820px;margin:10px auto 18px}
+.head{padding:13px 20px;border-bottom:1px solid #e4e8ee}.head b{font-size:11px;color:#d08e2f;text-transform:uppercase}.head h2{font-size:19px;margin:4px 0}.head p{font-size:12px;color:#607184;margin:0;line-height:1.45}
+.content{padding:15px 20px}.field{width:100%;min-height:70px;border:1px solid #cfd8e3;border-radius:8px;padding:9px;font:12.5px/1.45 Montserrat,Arial;resize:vertical}
+.choicegrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.choice{border:1px solid #dce3eb;border-radius:8px;padding:9px;background:#fbfcfd;font-size:12px}
+.choice input{margin-right:7px}.feedback{border:1px solid #e0e5eb;border-radius:9px;padding:12px;background:#fcfdff;margin-top:10px}.feedback h3{margin:0 0 6px;font-size:14px}.feedback p{margin:4px 0;font-size:11.7px;line-height:1.45;color:#405368}.feedback strong{color:#d08e2f}
+.nav{display:flex;justify-content:space-between;padding:10px 20px;border-top:1px solid #e4e8ee;background:#fbfcfd}.btn{border:0;border-radius:8px;background:#152c4a;color:#fff;padding:8px 14px;font-weight:700;cursor:pointer}.secondary{background:#eef2f6;color:#152c4a}.gold{background:#d08e2f}
+.summary{padding:16px 20px}.preview{border:1px solid #e0e5eb;border-radius:9px;padding:11px;background:#fcfdff;max-height:270px;overflow:auto;font-size:11.5px;white-space:pre-wrap}
+.meter{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin:10px 0}.meter div{border:1px solid #dce3eb;border-radius:8px;padding:7px;text-align:center;font-size:10.5px;background:#fbfcfd}.meter b{display:block;font-size:17px;margin-top:3px}
+.print{display:none}
+@media(max-width:700px){.cover{padding:20px 12px}.row h1{font-size:18px}.head,.content,.nav{padding-left:12px;padding-right:12px}.nav{position:sticky;bottom:0}.choicegrid,.meter{grid-template-columns:1fr}.btn{padding:8px 11px}}
+@media print{.app{display:none}.print{display:block!important;font-family:Montserrat;padding:14mm}.credit{text-align:center;font-size:8pt;color:#777;margin-top:12px}}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="progress"><span id="prog"></span></div>
+
+<section class="screen active">
+<div class="cover">
+<div class="course">Certificación en Modelo Estratégico de Negociación</div>
+<div class="row"><h1>Explora tu forma de negociar</h1><span class="tag">KIT DEL NEGOCIADOR</span></div>
+<div class="line"></div>
+<p class="lead"><b>Módulo 5 · ¿Qué encontramos en la mesa?</b><br>Reconoce lo que aparece en tiempo real y decide cómo actuar.</p>
+<p class="lead">Trabajarás cinco fenómenos del modelo: miedo, posiciones, cooperación, mentiras y seducción.</p>
+<div class="note">No se trata de etiquetar a las personas. El propósito es identificar señales, proteger tu NBN y responder estratégicamente sin perder claridad, principios ni capacidad de cooperación.</div>
+<button class="btn gold" onclick="go(1)">Comenzar →</button>
+</div>
+</section>
+
+<section class="screen">
+<div class="head"><b>Práctica I · Miedo</b><h2>El miedo que paraliza</h2><p>Una directora negocia presupuesto con alta gerencia. El interlocutor usa tono frío, desacuerdo constante y críticas humillantes; ella reduce sus peticiones y acepta condiciones desfavorables.</p></div>
+<div class="content">
+<div class="choicegrid" id="fearChoices"></div>
+<div id="fearFeedback" class="feedback"><p>Selecciona las señales o intervenciones que reconocerías en esta situación.</p></div>
+<label><b>¿Qué harías para recuperar capacidad de decisión?</b></label><textarea id="fearRef" class="field"></textarea>
+</div>
+<div class="nav"><button class="btn secondary" onclick="back()">← Anterior</button><button class="btn" onclick="next()">Siguiente →</button></div>
+</section>
+
+<section class="screen">
+<div class="head"><b>Práctica II · Posiciones</b><h2>El negociador posicional</h2><p>Proveedor: “Es mi última oferta, tómela o déjela”.</p></div>
+<div class="content">
+<label><b>Escribe tres preguntas para desenredar la posición:</b></label><textarea id="posQs" class="field" placeholder="Ej.: ¿Qué variables lo llevan a definirla como última?"></textarea>
+<label><b>¿Qué variables no monetarias explorarías?</b></label><textarea id="posVars" class="field"></textarea>
+<div class="feedback"><h3>Retroalimentación del modelo</h3><p>Una posición rígida expresa mentalidad de escasez. La recomendación no es confrontar, sino usar preguntas estratégicas para volver a intereses, necesidades, valores, objetivos y variables. En el caso del libro, la apertura permitió incorporar plazos, volumen y garantías.</p></div>
+</div>
+<div class="nav"><button class="btn secondary" onclick="back()">← Anterior</button><button class="btn" onclick="next()">Siguiente →</button></div>
+</section>
+
+<section class="screen">
+<div class="head"><b>Práctica III · Cooperación</b><h2>Cooperadores invisibles</h2><p>Negociación multilateral: aparecen dos perfiles cooperadores y un líder dominante y ruidoso.</p></div>
+<div class="content">
+<label><b>¿Qué señales te permitirían identificar a los cooperadores?</b></label><textarea id="coopSigns" class="field"></textarea>
+<label><b>¿Cómo construirías microacuerdos con ellos?</b></label><textarea id="coopMicro" class="field"></textarea>
+<div class="feedback"><h3>Retroalimentación del modelo</h3><p>Identificar aliados, construir microacuerdos y presentar propuestas conjuntas puede generar masa crítica y desplazar la negociación hacia el ganar-ganar. La lectura no es solo de individuos: también de la red disponible en la mesa.</p></div>
+</div>
+<div class="nav"><button class="btn secondary" onclick="back()">← Anterior</button><button class="btn" onclick="next()">Siguiente →</button></div>
+</section>
+
+<section class="screen">
+<div class="head"><b>Práctica IV · Mentira</b><h2>La mentira elegante</h2><p>Un socio afirma tener otra oferta mejor, sin evidencia clara.</p></div>
+<div class="content">
+<div class="choicegrid" id="lieChoices"></div>
+<div id="lieFeedback" class="feedback"><p>Marca las acciones que usarías para verificar sin acusar directamente.</p></div>
+<label><b>¿Qué criterio objetivo o evidencia pedirías?</b></label><textarea id="lieEvidence" class="field"></textarea>
+</div>
+<div class="nav"><button class="btn secondary" onclick="back()">← Anterior</button><button class="btn" onclick="next()">Siguiente →</button></div>
+</section>
+
+<section class="screen">
+<div class="head"><b>Práctica V · Seducción</b><h2>La seducción que nubla</h2><p>Negocias con una persona admirada profesionalmente. Aparecen afinidad emocional y seducción intelectual.</p></div>
+<div class="content">
+<label><b>¿Qué señales te indicarían que la admiración está influyendo en tu juicio?</b></label><textarea id="sedSigns" class="field"></textarea>
+<div class="choicegrid" id="sedChoices"></div>
+<div id="sedFeedback" class="feedback"><p>Selecciona medidas de protección.</p></div>
+</div>
+<div class="nav"><button class="btn secondary" onclick="back()">← Anterior</button><button class="btn" onclick="next()">Autoevaluación →</button></div>
+</section>
+
+<section class="screen">
+<div class="head"><b>Autoevaluación</b><h2>¿Qué encuentras habitualmente en tu mesa?</h2><p>Responde desde tu experiencia. No es un puntaje de “buen” o “mal” negociador: es una lectura de preparación.</p></div>
+<div class="content" id="selfEval"></div>
+<div class="nav"><button class="btn secondary" onclick="back()">← Anterior</button><button class="btn" onclick="finish()">Ver síntesis →</button></div>
+</section>
+
+<section class="screen">
+<div class="summary">
+<h2>Mi lectura de la mesa</h2>
+<div class="meter">
+<div>Miedo<b id="mFear">0</b></div><div>Posiciones<b id="mPos">0</b></div><div>Cooperación<b id="mCoop">0</b></div><div>Mentira<b id="mLie">0</b></div><div>Seducción<b id="mSed">0</b></div>
+</div>
+<div id="sum" class="preview"></div>
+<div class="feedback"><h3>Idea clave</h3><p>Reconocer lo que aparece en la mesa no sustituye la estrategia: la protege. Vuelve a tu NBN, usa preguntas, criterios objetivos, aliados cooperadores y pausas deliberadas cuando la emoción o la distorsión de información amenacen tu juicio.</p></div>
+<p style="text-align:center"><button class="btn gold" onclick="printIt()">Imprimir / Guardar PDF</button></p>
+</div>
+<div class="nav"><button class="btn secondary" onclick="back()">← Anterior</button><span></span></div>
+</section>
+</div>
+
+<div id="print" class="print"></div>
+
+<script>
+const screens=[...document.querySelectorAll('.screen')];let idx=0;
+function go(n){idx=Math.max(0,Math.min(screens.length-1,n));screens.forEach((s,i)=>s.classList.toggle('active',i===idx));prog.style.width=(idx/(screens.length-1)*100)+'%';scrollTo(0,0)}
+function next(){go(idx+1)} function back(){go(idx-1)}
+function choices(root,items,prefix,feedback,goodText){
+  root.innerHTML=items.map((x,i)=>'<label class="choice"><input type="checkbox" data-set="'+prefix+'" data-good="'+(x.good?'1':'0')+'"> '+x.t+'</label>').join('');
+  root.addEventListener('change',()=>{const marked=[...root.querySelectorAll('input:checked')];const good=marked.filter(x=>x.dataset.good==='1').length;feedback.innerHTML='<h3>Lectura</h3><p>'+goodText+'</p><p><strong>Selecciones alineadas con el modelo:</strong> '+good+' de '+marked.length+'.</p>'});
+}
+choices(fearChoices,[
+ {t:'Tono de voz y contacto visual',good:true},{t:'Posición corporal y rigidez',good:true},{t:'Pausa estratégica',good:true},{t:'Reducir inmediatamente la petición',good:false},{t:'Revisión del NBN',good:true},{t:'Regulación emocional antes de decidir',good:true}
+],'fear',fearFeedback,'El miedo puede aparecer en señales corporales y conductuales. El modelo propone pausar, revisar el NBN, regular la emoción y reencuadrar, en lugar de ceder de forma automática.');
+choices(lieChoices,[
+ {t:'Acusar al O.C. de mentir',good:false},{t:'Formular preguntas específicas',good:true},{t:'Pedir criterios objetivos',good:true},{t:'Comparar versiones y tiempos',good:true},{t:'Responder con otra mentira',good:false},{t:'Hacer una pausa deliberada',good:true}
+],'lie',lieFeedback,'Ante una sospecha de mentira, el modelo recomienda verificar sin acusar: preguntar, pedir ejemplos, comparar, contrastar fuentes y revisar coherencia. Si la contradicción se confirma, se abordan hechos y límites, incluso recurriendo al NBN.');
+choices(sedChoices,[
+ {t:'Volver al NBN',good:true},{t:'Incluir un tercero neutral',good:true},{t:'Cerrar rápido porque hay buena afinidad',good:false},{t:'Usar listas de verificación y criterios objetivos',good:true},{t:'Separar emoción y estrategia',good:true},{t:'Ignorar riesgos por confianza personal',good:false}
+],'sed',sedFeedback,'La seducción se vuelve trampa cuando interfiere con el análisis objetivo. El texto propone volver al NBN, separar emoción y estrategia, introducir revisiones independientes y, si hace falta, un tercero neutral.');
+
+const evalItems=[
+ ['fear','¿Has observado miedo en algún O.C.?'],['fear','¿Has presentado miedo en alguna negociación?'],
+ ['pos','¿Has identificado comportamientos posicionales que retrasaron la negociación?'],
+ ['lie','¿Has detectado alguna vez que te mentían en la mesa?'],
+ ['sed','¿Has sentido afinidad o admiración que influyera en tu juicio?'],
+ ['coop','¿Logras identificar quién coopera y quién resiste?'],
+ ['coop','¿Has alineado tu estrategia con actores cooperadores para destrabar la negociación?'],
+ ['fear','¿Has permanecido más allá de tu NBN por razones emocionales?']
+];
+selfEval.innerHTML=evalItems.map((x,i)=>'<div class="choice" style="margin-bottom:7px"><div style="font-weight:600;margin-bottom:5px">'+x[1]+'</div><label><input type="radio" name="ev'+i+'" value="1" data-cat="'+x[0]+'"> Sí</label> &nbsp; <label><input type="radio" name="ev'+i+'" value="0" data-cat="'+x[0]+'"> No</label></div>').join('')+'<label><b>Reflexiona sobre los hallazgos más importantes que reconoces en tu mesa de negociación:</b></label><textarea id="finalRef" class="field"></textarea>';
+
+function val(id){return document.getElementById(id)?.value||''}
+function finish(){
+ const scores={fear:0,pos:0,coop:0,lie:0,sed:0};
+ document.querySelectorAll('#selfEval input:checked').forEach(e=>{if(e.value==='1')scores[e.dataset.cat]++});
+ mFear.textContent=scores.fear;mPos.textContent=scores.pos;mCoop.textContent=scores.coop;mLie.textContent=scores.lie;mSed.textContent=scores.sed;
+ const highest=Math.max(...Object.values(scores));
+ const names={fear:'miedo y decisiones bajo presión',pos:'posiciones rígidas',coop:'lectura de cooperación y resistencia',lie:'veracidad y contraste de información',sed:'afinidad o seducción'};
+ const focus=Object.keys(scores).filter(k=>scores[k]===highest&&highest>0).map(k=>names[k]).join(', ');
+ sum.textContent=
+ 'MI PREPARACIÓN PARA LA MESA\n\n'+
+ (focus?'Áreas que merecen mayor atención según tu autoobservación: '+focus+'.\n\n':'No marcaste experiencias afirmativas; usa la reflexión para anticipar cómo responderías si aparecen.\n\n')+
+ 'Miedo: recuerda pausar, regular y volver al NBN antes de reducir tus posibilidades.\n'+
+ 'Posiciones: usa preguntas estratégicas para abrir intereses y variables.\n'+
+ 'Cooperación: identifica aliados y construye microacuerdos.\n'+
+ 'Mentira: verifica con preguntas, criterios objetivos y coherencia; evita acusar sin prueba.\n'+
+ 'Seducción: separa emoción y estrategia, contrasta riesgos y vuelve al NBN.\n\n'+
+ 'Mi reflexión:\n'+val('finalRef');
+ next();
+}
+function printIt(){print.innerHTML='<h1>Explora tu forma de negociar</h1><h3>Módulo 5 · ¿Qué encontramos en la mesa?</h3><pre>'+sum.textContent+'</pre><div class="credit">Material elaborado por Rybs Ideas, para la Certificación en Modelo Estratégico de Negociación</div>';window.print()}
+go(0);
+</script>
+</body>
+</html>
