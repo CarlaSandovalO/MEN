@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>M10 · Resultados</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;padding:5px;background:#f5f7fa;font-family:Montserrat,Arial,sans-serif;color:#152c4a}
+.app{max-width:960px;margin:auto;background:#fff;border:1px solid #dfe5ec;border-radius:12px;overflow:hidden}
+.progress{height:4px;background:#e8edf3}.progress span{display:block;height:100%;background:#d08e2f;width:0;transition:.25s}
+.screen{display:none;min-height:450px}.screen.active{display:block}
+.cover{min-height:450px;padding:28px;text-align:center;display:flex;flex-direction:column;justify-content:center}
+.cover .btn{align-self:center;width:auto}
+.course{font-size:11px;color:#607184;font-weight:600}
+.row{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0 8px}.row h1{font-size:22px;margin:0}
+.tag{background:#d08e2f;color:#fff;padding:5px 10px;border-radius:6px;font-size:10px;font-weight:700}
+.line{width:54px;height:3px;background:#d08e2f;margin:0 auto 16px}
+.lead{font-size:14px;color:#46576a;line-height:1.5;max-width:800px;margin:0 auto 12px}
+.note{background:#f7f9fc;border-left:4px solid #d08e2f;border-radius:7px;padding:10px 13px;font-size:12px;text-align:left;max-width:820px;margin:10px auto 18px}
+.head{padding:13px 20px;border-bottom:1px solid #e4e8ee}.head b{font-size:11px;color:#d08e2f;text-transform:uppercase}.head h2{font-size:19px;margin:4px 0}.head p{font-size:12px;color:#607184;margin:0;line-height:1.45}
+.content{padding:15px 20px}
+.resultgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.resultcard{border:1px solid #dce3eb;border-radius:9px;padding:11px;background:#fbfcfd;cursor:pointer}
+.resultcard.selected{border:2px solid #d08e2f;background:#fffaf3}
+.resultcard h3{margin:0 0 5px;font-size:13px}.resultcard p{margin:0;font-size:11.3px;line-height:1.4;color:#506175}
+.checklist{display:grid;gap:8px}.q{border:1px solid #dce3eb;border-radius:8px;padding:10px;background:#fbfcfd}
+.q strong{font-size:11.5px}.answers{margin-top:7px}.answers label{font-size:11px;margin-right:14px}
+.feedback{border:1px solid #e0e5eb;border-radius:9px;padding:10px 12px;background:#fcfdff;margin-top:10px}.feedback p{margin:3px 0;font-size:11.5px;line-height:1.45;color:#405368}.feedback strong{color:#d08e2f}
+.field{width:100%;min-height:58px;border:1px solid #cfd8e3;border-radius:8px;padding:8px;font:12px/1.45 Montserrat;resize:vertical}
+.nav{display:flex;justify-content:space-between;padding:10px 20px;border-top:1px solid #e4e8ee;background:#fbfcfd}
+.btn{border:0;border-radius:8px;background:#152c4a;color:#fff;padding:8px 14px;font-weight:700;cursor:pointer;width:auto}.secondary{background:#eef2f6;color:#152c4a}.gold{background:#d08e2f}
+.preview{border:1px solid #e0e5eb;border-radius:9px;padding:11px;background:#fcfdff;font-size:11.5px;white-space:pre-wrap;line-height:1.5}
+@media(max-width:700px){.cover{padding:20px 12px}.row h1{font-size:18px}.head,.content,.nav{padding-left:12px;padding-right:12px}.nav{position:sticky;bottom:0}.resultgrid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="progress"><span id="prog"></span></div>
+
+<section class="screen active">
+<div class="cover">
+<div class="course">Certificación en Modelo Estratégico de Negociación</div>
+<div class="row"><h1>Explora tu forma de negociar</h1><span class="tag">CIERRE DEL MODELO</span></div>
+<div class="line"></div>
+<p class="lead"><b>Módulo 10 · Resultados</b></p>
+<p class="lead">Evalúa lo que dejó la negociación más allá del acuerdo inmediato.</p>
+<div class="note"><strong>Recuerda:</strong> el resultado es consecuencia del camino recorrido. No se evalúa solo por lo obtenido hoy, sino también por el NBN, la relación, la confianza y las posibilidades futuras.</div>
+<button id="startBtn" class="btn gold" type="button">Comenzar →</button>
+</div>
+</section>
+
+<section class="screen">
+<div class="head"><b>Paso 1</b><h2>¿Qué resultado describe mejor tu negociación?</h2><p>Selecciona el escenario que más se aproxima a lo ocurrido.</p></div>
+<div class="content">
+<div class="resultgrid" id="resultGrid"></div>
+<div id="scenarioFb" class="feedback"><p>Selecciona un escenario para continuar.</p></div>
+</div>
+<div class="nav"><button id="back1" class="btn secondary" type="button">← Anterior</button><button id="next1" class="btn" type="button">Siguiente →</button></div>
+</section>
+
+<section class="screen">
+<div class="head"><b>Paso 2</b><h2>Evalúa el resultado</h2><p>Responde pensando en el cierre real de la negociación.</p></div>
+<div class="content">
+<div id="questions" class="checklist"></div>
+<div class="q">
+<strong>¿Obtuviste una ventaja inmediata, pero percibes pérdida de relación, reputación u oportunidades futuras?</strong>
+<div class="answers"><label><input type="radio" name="curse" value="1"> Sí</label><label><input type="radio" name="curse" value="0"> No</label></div>
+</div>
+<div id="evalFb" class="feedback"><p>Completa las respuestas para obtener una lectura.</p></div>
+</div>
+<div class="nav"><button id="back2" class="btn secondary" type="button">← Anterior</button><button id="next2" class="btn" type="button">Ver lectura →</button></div>
+</section>
+
+<section class="screen">
+<div class="head"><b>Paso 3</b><h2>¿Qué conservarías y qué ajustarías?</h2><p>Cierra con una decisión concreta para tu próxima negociación.</p></div>
+<div class="content">
+<label><b>¿Qué acción o decisión funcionó y conviene conservar?</b></label>
+<textarea id="keep" class="field"></textarea>
+<label><b>¿Qué ajustarías para mejorar el resultado la próxima vez?</b></label>
+<textarea id="adjust" class="field"></textarea>
+<div id="finalReading" class="feedback"></div>
+</div>
+<div class="nav"><button id="back3" class="btn secondary" type="button">← Anterior</button><button id="finishBtn" class="btn" type="button">Cerrar módulo →</button></div>
+</section>
+
+<section class="screen">
+<div class="head"><b>Cierre</b><h2>Mi aprendizaje del resultado</h2><p>Una síntesis breve para cerrar el modelo.</p></div>
+<div class="content">
+<div id="summary" class="preview"></div>
+<div class="feedback"><p><strong>Recuerda:</strong> un resultado estratégico mejora la situación de cada parte, protege el NBN y deja condiciones para sostener o ampliar la relación.</p></div>
+</div>
+<div class="nav"><button id="back4" class="btn secondary" type="button">← Anterior</button><span></span></div>
+</section>
+</div>
+
+<script>
+const screens=[...document.querySelectorAll('.screen')];
+const prog=document.getElementById('prog');let idx=0,scenario='';
+function go(n){idx=Math.max(0,Math.min(screens.length-1,n));screens.forEach((s,i)=>s.classList.toggle('active',i===idx));prog.style.width=(idx/(screens.length-1)*100)+'%';window.scrollTo(0,0)}
+const scenarios=[
+['Gana–Pierde / Pierde–Gana','Una parte obtiene beneficios a expensas de la otra. Puede haber desgaste, presión y pérdida de confianza.'],
+['Pierde–Pierde','La negociación se deteriora, rompe el vínculo y no deja aprendizaje ni nuevas alternativas.'],
+['Gana–Gana superficial','Ambas partes obtienen algo, pero con poca profundidad, confianza o combinación de variables.'],
+['Gana–Gana estratégico','Cada parte mejora su situación inicial, supera su NBN y mantiene o fortalece la relación.']
+];
+resultGrid.innerHTML=scenarios.map((x,i)=>'<div class="resultcard" data-value="'+i+'"><h3>'+x[0]+'</h3><p>'+x[1]+'</p></div>').join('');
+[...document.querySelectorAll('.resultcard')].forEach(card=>card.addEventListener('click',()=>{
+  [...document.querySelectorAll('.resultcard')].forEach(x=>x.classList.remove('selected'));
+  card.classList.add('selected'); scenario=card.dataset.value;
+  const i=Number(scenario);
+  scenarioFb.innerHTML='<p><strong>Recuerda:</strong> '+(
+    i===0?'una ventaja inmediata puede convertirse en pérdida estratégica si deteriora confianza, reputación o relación.':
+    i===1?'cuando se rompe el vínculo y no quedan alternativas, el costo trasciende lo económico.':
+    i===2?'un acuerdo puede parecer positivo y aun ser frágil si no profundiza en confianza, variables y futuro.':
+    'el ganar–ganar estratégico no significa obtener lo mismo, sino mejorar la situación de cada parte y proteger el NBN.'
+  )+'</p>';
+}));
+const qs=[
+'¿Cada negociador superó su NBN?',
+'¿Se atendieron los intereses y necesidades de cada negociador?',
+'¿La relación se fortaleció?',
+'¿La confianza aumentó?',
+'¿Se abrieron nuevas posibilidades para el futuro?'
+];
+questions.innerHTML=qs.map((q,i)=>'<div class="q"><strong>'+q+'</strong><div class="answers"><label><input type="radio" name="q'+i+'" value="1"> Sí</label><label><input type="radio" name="q'+i+'" value="0"> No</label></div></div>').join('');
+
+function val(name){
+ const el=document.querySelector('input[name="'+name+'"]:checked'); return el?Number(el.value):null;
+}
+function readEvaluation(){
+ const vals=qs.map((_,i)=>val('q'+i));
+ if(vals.some(v=>v===null) || val('curse')===null){evalFb.innerHTML='<p>Completa todas las respuestas antes de continuar.</p>';return false}
+ const score=vals.reduce((a,b)=>a+b,0), curse=val('curse');
+ let msg='';
+ if(score===5) msg='El resultado presenta señales consistentes con un cierre estratégico: NBN protegido, necesidades atendidas, relación fortalecida y futuro abierto.';
+ else if(score>=3) msg='El resultado tiene elementos positivos, pero todavía hay aspectos que pueden volverlo frágil. Revisa especialmente relación, confianza y posibilidades futuras.';
+ else msg='El resultado muestra señales de alerta. Conviene revisar qué parte del proceso debilitó el NBN, la relación o la generación de valor.';
+ if(curse===1) msg+=' Atención: aparece una señal de “maldición del ganador individual”: una ventaja inmediata puede estar costando valor estratégico futuro.';
+ evalFb.innerHTML='<p><strong>Recuerda:</strong> '+msg+'</p>';
+ finalReading.innerHTML='<p><strong>Recuerda:</strong> '+msg+'</p>';
+ return true;
+}
+
+function text(id){return document.getElementById(id).value||''}
+function finish(){
+ const vals=qs.map((_,i)=>val('q'+i)), score=vals.reduce((a,b)=>a+(b||0),0);
+ summary.textContent=
+ 'RESULTADO IDENTIFICADO\n'+(scenario!==''?scenarios[Number(scenario)][0]:'Sin seleccionar')+
+ '\n\nLECTURA INTEGRAL\n'+score+' de 5 indicadores positivos.'+
+ '\n\nQUÉ CONSERVAR\n'+text('keep')+
+ '\n\nQUÉ AJUSTAR\n'+text('adjust')+
+ '\n\nCIERRE\nEl resultado no termina en el acuerdo: también se refleja en la relación, la confianza y las posibilidades que quedan abiertas.';
+ go(4);
+}
+
+startBtn.addEventListener('click',()=>go(1));
+back1.addEventListener('click',()=>go(0));
+next1.addEventListener('click',()=>{if(scenario===''){scenarioFb.innerHTML='<p>Selecciona un escenario antes de continuar.</p>';return}go(2)});
+back2.addEventListener('click',()=>go(1));
+next2.addEventListener('click',()=>{if(readEvaluation())go(3)});
+back3.addEventListener('click',()=>go(2));
+finishBtn.addEventListener('click',finish);
+back4.addEventListener('click',()=>go(3));
+go(0);
+</script>
+</body>
+</html>
