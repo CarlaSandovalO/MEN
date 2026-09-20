@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;padding:34px 28px;background:#fff;font-family:"Montserrat",Arial,sans-serif;color:#263443}
+.certificacion{max-width:1000px;margin:0 auto;padding:0 10px}
+.hero{background:#152c4a;border-radius:22px;padding:42px 38px;margin-bottom:38px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;width:280px;height:280px;border-radius:50%;background:rgba(208,142,47,.09);right:-90px;top:-120px}
+.hero:after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;border:1px solid rgba(242,189,100,.20);right:40px;bottom:-95px}
+.hero-content{position:relative;z-index:2}
+.hero-label{font-size:12px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:#f2bd64;margin-bottom:11px}
+.hero h1{color:#fff;font-size:35px;line-height:1.18;font-weight:700;margin:0 0 16px;max-width:820px}
+.hero p{color:#e5ebf2;font-size:16px;line-height:1.7;margin:0;max-width:780px}
+.hero-line{width:65px;height:4px;border-radius:5px;background:#d08e2f;margin-top:24px}
+.tabs-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;border-bottom:1px solid #dfe3e7;margin-bottom:48px}
+.tab{appearance:none;border:0;background:transparent;padding:0 4px 16px;font-family:"Montserrat",Arial,sans-serif;font-size:14px;font-weight:600;line-height:1.35;color:#737d87;cursor:pointer;position:relative;transition:.2s ease;text-align:left;white-space:normal;min-height:54px;display:flex;align-items:flex-end}
+.tab:hover{color:#152c4a}
+.tab.active{color:#152c4a;font-weight:700}
+.tab.active:after{content:"";position:absolute;height:3px;background:#d08e2f;left:0;right:0;bottom:-1px;border-radius:3px 3px 0 0}
+.tab-panel{display:none;animation:fadePanel .3s ease}
+.tab-panel.active{display:block}
+@keyframes fadePanel{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.section-intro{display:grid;grid-template-columns:minmax(0,1fr) 245px;gap:54px;align-items:center;margin-bottom:42px}
+.section-label{font-size:12px;text-transform:uppercase;letter-spacing:1.1px;color:#d08e2f;font-weight:700;margin-bottom:9px}
+.section-intro h2{font-size:30px;line-height:1.22;color:#152c4a;margin:0 0 14px}
+.section-intro p{font-size:15px;line-height:1.75;color:#53606d;margin:0 0 13px}
+.section-intro p:last-child{margin-bottom:0}
+.illustration{width:220px;height:190px;display:flex;align-items:center;justify-content:center;margin-left:auto}
+.illustration svg{width:100%;height:100%}
+.resources{margin-top:18px}
+.resource{display:grid;grid-template-columns:78px 1fr;gap:22px;padding:24px 0;border-top:1px solid #e3e7ea}
+.resource:last-child{border-bottom:1px solid #e3e7ea}
+.resource-number{font-size:28px;line-height:1;font-weight:800;color:#d08e2f;padding-top:2px;letter-spacing:-1px}
+.resource h3{font-size:17px;line-height:1.4;color:#152c4a;margin:0 0 7px}
+.resource p{margin:0;font-size:14px;line-height:1.68;color:#5e6975}
+.resource p+p{margin-top:8px}
+.kit-options{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:28px 0 32px}
+.kit-option{padding:24px;background:#f7f8f9;border-radius:16px}
+.option-symbol{width:46px;height:46px;margin-bottom:14px}
+.option-symbol svg{width:100%;height:100%}
+.kit-option h3{color:#152c4a;font-size:17px;margin:0 0 7px}
+.kit-option p{color:#5e6975;font-size:14px;line-height:1.65;margin:0}
+.kit-message{border-left:4px solid #d08e2f;padding:5px 0 5px 22px;margin-top:32px}
+.kit-message h3{color:#152c4a;font-size:18px;margin:0 0 7px}
+.kit-message p{color:#53606d;font-size:14px;line-height:1.7;margin:0}
+.benefits-title{font-size:18px;color:#152c4a;font-weight:700;margin:34px 0 20px}
+.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-bottom:12px}
+.benefit{border-top:3px solid #d08e2f;padding-top:16px}
+.benefit-number{font-size:12px;font-weight:800;letter-spacing:1px;color:#d08e2f;margin-bottom:8px}
+.benefit h3{margin:0 0 7px;color:#152c4a;font-size:15px;line-height:1.4}
+.benefit p{margin:0;color:#5e6975;font-size:13px;line-height:1.65}
+.certificate-benefits{margin-top:30px;border-top:1px solid #e2e6ea}
+.certificate-item{display:grid;grid-template-columns:32px 1fr;gap:15px;padding:20px 0;border-bottom:1px solid #e2e6ea}
+.check{width:25px;height:25px;border-radius:50%;background:#f8ecd9;color:#d08e2f;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px}
+.certificate-item strong{display:block;color:#152c4a;font-size:15px;margin-bottom:4px}
+.certificate-item span{display:block;color:#5e6975;font-size:14px;line-height:1.6}
+@media(max-width:760px){
+body{padding:18px 14px}
+.certificacion{padding:0 2px}
+.hero{padding:30px 22px;border-radius:18px;margin-bottom:28px}
+.hero h1{font-size:28px}
+.hero p{font-size:14px}
+.tabs-nav{grid-template-columns:1fr 1fr;gap:14px 16px;margin-bottom:38px}
+.tab{min-height:50px;font-size:13px;padding-bottom:12px}
+.section-intro{grid-template-columns:1fr;gap:24px;margin-bottom:34px}
+.section-intro h2{font-size:26px}
+.illustration{width:180px;height:155px;margin:0 auto;order:-1}
+.kit-options{grid-template-columns:1fr}
+.benefits{grid-template-columns:1fr;gap:20px}
+.resource{grid-template-columns:58px 1fr;gap:14px}
+.resource-number{font-size:23px}
+}
+</style>
+</head>
+<body>
+<div class="certificacion">
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-label">Antes de comenzar</div>
+    <h1>Esta certificación no es solo para aprender sobre negociación.<br>Es para aprender a negociar.</h1>
+    <p>A lo largo del recorrido conocerás el Modelo Estratégico de Negociación, analizarás sus herramientas y tendrás espacios para llevar lo aprendido a situaciones reales.</p>
+    <div class="hero-line"></div>
+  </div>
+</section>
+
+<nav class="tabs-nav">
+  <button class="tab active" data-tab="modulos">Qué encontrarás<br>en cada módulo</button>
+  <button class="tab" data-tab="kit">El Kit del<br>Negociador</button>
+  <button class="tab" data-tab="sesion">Sesión<br>personalizada</button>
+  <button class="tab" data-tab="certificado">Certificado<br>verificado</button>
+</nav>
+
+<section class="tab-panel active" id="modulos">
+  <div class="section-intro">
+    <div>
+      <div class="section-label">Tu recorrido</div>
+      <h2>¿Qué encontrarás en cada módulo?</h2>
+      <p>Los contenidos combinan explicación, profundización, práctica y evaluación para que avances progresivamente en el dominio del Modelo Estratégico de Negociación.</p>
+      <p>Cada recurso cumple una función específica dentro del recorrido: comprender los conceptos, profundizar en ellos, practicar su aplicación y comprobar tu aprendizaje al finalizar cada módulo.</p>
+    </div>
+    <div class="illustration">
+      <svg viewBox="0 0 240 200">
+        <circle cx="120" cy="98" r="82" fill="#F8F1E6"/>
+        <rect x="55" y="55" width="90" height="110" rx="7" fill="#FFFFFF" stroke="#152C4A" stroke-width="3"/>
+        <rect x="70" y="73" width="61" height="8" rx="4" fill="#D08E2F"/>
+        <rect x="70" y="92" width="52" height="5" rx="2.5" fill="#C8D0D8"/>
+        <rect x="70" y="104" width="62" height="5" rx="2.5" fill="#C8D0D8"/>
+        <rect x="70" y="116" width="45" height="5" rx="2.5" fill="#C8D0D8"/>
+        <circle cx="159" cy="129" r="31" fill="#152C4A"/>
+        <polygon points="151,114 151,144 175,129" fill="#F2BD64"/>
+        <path d="M156 43 L173 55 L192 51" fill="none" stroke="#D08E2F" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="195" cy="50" r="5" fill="#D08E2F"/>
+      </svg>
+    </div>
+  </div>
+  <div class="resources">
+    <div class="resource">
+      <div class="resource-number">01</div>
+      <div>
+        <h3>Videos explicativos e introductorios</h3>
+        <p>Te ayudarán a entrar en cada tema, comprender sus ideas principales y reconocer cómo se relacionan con el Modelo Estratégico de Negociación.</p>
+      </div>
+    </div>
+    <div class="resource">
+      <div class="resource-number">02</div>
+      <div>
+        <h3>Lecturas para profundizar</h3>
+        <p>Amplían los conceptos y herramientas del módulo para que puedas comprenderlos antes de llevarlos a la práctica.</p>
+      </div>
+    </div>
+    <div class="resource">
+      <div class="resource-number">03</div>
+      <div>
+        <h3>Actividades interactivas para repasar</h3>
+        <p>Podrás comprobar tu comprensión mediante ejercicios breves. Estas actividades son formativas y <strong>no tienen punteo</strong>.</p>
+      </div>
+    </div>
+    <div class="resource">
+      <div class="resource-number">04</div>
+      <div>
+        <h3>Evaluación del módulo</h3>
+        <p>Al final de cada módulo encontrarás una evaluación sobre el tema estudiado. Incluye preguntas de <strong>selección múltiple</strong> que combinan fundamentos conceptuales y situaciones de aplicación.</p>
+        <p>Cada evaluación cuenta con <strong>un único intento</strong> y tendrás un máximo de <strong>15 minutos</strong> para resolverla.</p>
+        <p>La nota mínima para considerar aprobado cada test es de <strong>80 puntos</strong>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tab-panel" id="kit">
+  <div class="section-intro">
+    <div>
+      <div class="section-label">La parte práctica</div>
+      <h2>Explora tu forma de negociar</h2>
+      <p>Estos ejercicios son una de las partes más importantes de tu recorrido. Buena parte del aprendizaje ocurre cuando analizas tu propia forma de negociar y aplicas las herramientas del modelo.</p>
+      <p>En cada ejercicio podrás trabajar una negociación, una experiencia o una situación concreta. Puedes realizarlo directamente en línea o descargar tu hoja de trabajo.</p>
+    </div>
+    <div class="illustration">
+      <svg viewBox="0 0 240 200">
+        <circle cx="120" cy="100" r="82" fill="#F8F1E6"/>
+        <rect x="47" y="78" width="145" height="92" rx="12" fill="#152C4A"/>
+        <path d="M87 78 V61 C87 52 94 47 103 47 H137 C146 47 153 52 153 61 V78" fill="none" stroke="#152C4A" stroke-width="7"/>
+        <rect x="47" y="98" width="145" height="11" fill="#D08E2F"/>
+        <rect x="105" y="94" width="30" height="25" rx="5" fill="#F2BD64" stroke="#152C4A" stroke-width="3"/>
+        <rect x="62" y="124" width="45" height="28" rx="4" fill="#FFFFFF" opacity=".95"/>
+        <line x1="69" y1="133" x2="99" y2="133" stroke="#D08E2F" stroke-width="3"/>
+        <line x1="69" y1="142" x2="94" y2="142" stroke="#BCC5CD" stroke-width="3"/>
+        <circle cx="164" cy="138" r="16" fill="#FFFFFF"/>
+        <path d="M156 138 l6 6 11-13" fill="none" stroke="#D08E2F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+  <div class="kit-options">
+    <div class="kit-option">
+      <div class="option-symbol">
+        <svg viewBox="0 0 48 48">
+          <rect x="5" y="7" width="38" height="27" rx="4" fill="#152C4A"/>
+          <rect x="9" y="11" width="30" height="19" rx="2" fill="#F8F1E6"/>
+          <circle cx="24" cy="20" r="6" fill="#D08E2F"/>
+          <polygon points="22,16 22,24 28,20" fill="#FFFFFF"/>
+          <rect x="17" y="38" width="14" height="3" rx="1.5" fill="#152C4A"/>
+        </svg>
+      </div>
+      <h3>Trabajarlo en línea</h3>
+      <p>Completa el ejercicio directamente en la plataforma de forma interactiva y, cuando corresponda, obtén tus resultados automáticamente.</p>
+    </div>
+    <div class="kit-option">
+      <div class="option-symbol">
+        <svg viewBox="0 0 48 48">
+          <path d="M11 4 H29 L38 13 V43 H11 Z" fill="#FFFFFF" stroke="#152C4A" stroke-width="2.5"/>
+          <path d="M29 4 V13 H38" fill="#F2BD64" stroke="#152C4A" stroke-width="2.5"/>
+          <line x1="17" y1="20" x2="31" y2="20" stroke="#BCC5CD" stroke-width="2.5"/>
+          <line x1="17" y1="26" x2="31" y2="26" stroke="#BCC5CD" stroke-width="2.5"/>
+          <path d="M24 30 V39 M20 35 L24 39 L28 35" fill="none" stroke="#D08E2F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3>Descargar tu hoja de trabajo</h3>
+      <p>Guarda el PDF editable en tu equipo y respóndelo desde la computadora, o imprímelo y trabájalo a mano.</p>
+    </div>
+  </div>
+  <div class="kit-message">
+    <h3>Construye tu Kit del Negociador</h3>
+    <p>Conserva las hojas de trabajo que desarrolles durante la certificación. Juntas formarán tu <strong>Kit del Negociador</strong>: un conjunto personal de análisis, experiencias y herramientas que podrás volver a consultar cuando enfrentes futuras negociaciones.</p>
+  </div>
+</section>
+
+<section class="tab-panel" id="sesion">
+  <div class="section-intro">
+    <div>
+      <div class="section-label">Acompañamiento personalizado</div>
+      <h2>Una hora para trabajar tu propia negociación</h2>
+      <p>Después de completar satisfactoriamente el contenido del <strong>quinto módulo</strong>, podrás acceder a una sesión privada de una hora con el facilitador.</p>
+      <p>Este espacio está diseñado para resolver dudas específicas, analizar un caso propio e identificar alternativas para su solución, aplicando el Modelo Estratégico de Negociación y las herramientas desarrolladas durante la certificación.</p>
+      <p>Para aprovechar mejor este espacio, te recomendamos llegar con una negociación real, una situación concreta o preguntas relacionadas con la aplicación del modelo.</p>
+    </div>
+    <div class="illustration">
+      <svg viewBox="0 0 240 200">
+        <circle cx="120" cy="100" r="82" fill="#F8F1E6"/>
+        <rect x="55" y="45" width="132" height="105" rx="10" fill="#152C4A"/>
+        <rect x="63" y="53" width="116" height="87" rx="5" fill="#FFFFFF"/>
+        <circle cx="118" cy="82" r="19" fill="#D08E2F"/>
+        <path d="M85 130 C88 106 98 98 118 98 C138 98 149 106 151 130" fill="#152C4A"/>
+        <path d="M109 98 L118 112 L127 98" fill="#F2BD64"/>
+        <rect x="136" y="66" width="57" height="38" rx="11" fill="#F2BD64"/>
+        <polygon points="145,101 144,112 155,102" fill="#F2BD64"/>
+        <circle cx="151" cy="85" r="3" fill="#152C4A"/>
+        <circle cx="164" cy="85" r="3" fill="#152C4A"/>
+        <circle cx="177" cy="85" r="3" fill="#152C4A"/>
+        <rect x="103" y="150" width="34" height="10" rx="3" fill="#D08E2F"/>
+        <rect x="88" y="159" width="64" height="6" rx="3" fill="#152C4A"/>
+      </svg>
+    </div>
+  </div>
+  <div class="benefits-title">¿Cómo puedes aprovechar esta sesión?</div>
+  <div class="benefits">
+    <div class="benefit">
+      <div class="benefit-number">01</div>
+      <h3>Trabajar una negociación real</h3>
+      <p>Lleva un caso propio y analiza la situación junto al facilitador desde la perspectiva del modelo.</p>
+    </div>
+    <div class="benefit">
+      <div class="benefit-number">02</div>
+      <h3>Resolver consultas específicas</h3>
+      <p>Profundiza en conceptos, herramientas o decisiones que hayan surgido durante tu recorrido por la certificación.</p>
+    </div>
+    <div class="benefit">
+      <div class="benefit-number">03</div>
+      <h3>Explorar posibles abordajes</h3>
+      <p>Identifica alternativas y posibles cursos de acción aplicando el Modelo Estratégico de Negociación.</p>
+    </div>
+  </div>
+</section>
+
+<section class="tab-panel" id="certificado">
+  <div class="section-intro">
+    <div>
+      <div class="section-label">Tu logro</div>
+      <h2>Certificado digital verificable</h2>
+      <p>Al aprobar satisfactoriamente la certificación recibirás un <strong>certificado digital verificable</strong> mediante un código o enlace único.</p>
+      <p>Su autenticidad podrá comprobarse en línea desde cualquier parte del mundo, brindando mayor confianza y respaldo a tu formación.</p>
+      <p>Podrás incorporar esta credencial a tu hoja de vida, portafolio o perfil en redes profesionales, facilitando que empleadores e instituciones verifiquen la validez de la certificación obtenida.</p>
+    </div>
+    <div class="illustration">
+      <svg viewBox="0 0 240 200">
+        <circle cx="120" cy="98" r="82" fill="#F8F1E6"/>
+        <rect x="52" y="43" width="128" height="110" rx="8" fill="#FFFFFF" stroke="#152C4A" stroke-width="3"/>
+        <rect x="69" y="61" width="65" height="7" rx="3.5" fill="#152C4A"/>
+        <rect x="69" y="78" width="92" height="4" rx="2" fill="#C5CDD5"/>
+        <rect x="69" y="89" width="79" height="4" rx="2" fill="#C5CDD5"/>
+        <rect x="69" y="100" width="58" height="4" rx="2" fill="#C5CDD5"/>
+        <circle cx="151" cy="123" r="25" fill="#D08E2F"/>
+        <circle cx="151" cy="123" r="17" fill="none" stroke="#FBE2B7" stroke-width="2"/>
+        <path d="M142 123 L148 129 L160 115" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M140 143 L136 170 L151 161 L165 170 L161 143" fill="#152C4A"/>
+        <circle cx="70" cy="130" r="10" fill="#F2BD64"/>
+        <path d="M65 130 L69 134 L76 126" fill="none" stroke="#152C4A" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+  <div class="certificate-benefits">
+    <div class="certificate-item">
+      <div class="check">✓</div>
+      <div>
+        <strong>Verificación en línea</strong>
+        <span>La autenticidad del certificado podrá comprobarse mediante un código o enlace único.</span>
+      </div>
+    </div>
+    <div class="certificate-item">
+      <div class="check">✓</div>
+      <div>
+        <strong>Respaldo de tu formación</strong>
+        <span>Empleadores e instituciones podrán verificar que completaste satisfactoriamente la certificación.</span>
+      </div>
+    </div>
+    <div class="certificate-item">
+      <div class="check">✓</div>
+      <div>
+        <strong>Credencial profesional</strong>
+        <span>Podrás incorporarlo a tu hoja de vida, portafolio o perfiles profesionales digitales.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<script>
+const tabs=document.querySelectorAll(".tab");
+const panels=document.querySelectorAll(".tab-panel");
+tabs.forEach(tab=>{
+  tab.addEventListener("click",function(){
+    tabs.forEach(item=>item.classList.remove("active"));
+    panels.forEach(panel=>panel.classList.remove("active"));
+    this.classList.add("active");
+    const panel=document.getElementById(this.dataset.tab);
+    if(panel){panel.classList.add("active")}
+  });
+});
+</script>
+</body>
+</html>
