@@ -123,8 +123,8 @@ h3,.card h3,.feedback h3,.resultcard h3{font-size:12pt!important;line-height:1.3
 <div class="row"><h1>Explora tu forma de negociar</h1><span class="tag">CIERRE DEL MODELO</span></div>
 <div class="line"></div>
 <p class="lead"><b>Módulo 10 · Resultados</b></p>
-<p class="lead">Evalúa lo que dejó la negociación más allá del acuerdo inmediato.</p>
-<div class="note"><strong>Recuerda:</strong> el resultado es consecuencia del camino recorrido. No se evalúa solo por lo obtenido hoy, sino también por el NBN, la relación, la confianza y las posibilidades futuras.</div>
+<p class="lead">Toda negociación deja un resultado. Evalúalo no solo por lo obtenido de inmediato, sino también por su efecto en el NBN, la relación, la confianza y las posibilidades futuras.</p>
+<div class="note"><strong>Recuerda:</strong> un resultado favorable hoy puede generar una pérdida estratégica mañana si deteriora la confianza, la reputación o las oportunidades futuras.</div>
 <button id="startBtn" class="btn gold" type="button">Comenzar →</button>
 </div>
 </section>
@@ -146,6 +146,8 @@ h3,.card h3,.feedback h3,.resultcard h3{font-size:12pt!important;line-height:1.3
 <strong>¿Obtuviste una ventaja inmediata, pero percibes pérdida de relación, reputación u oportunidades futuras?</strong>
 <div class="answers"><label><input type="radio" name="curse" value="1"> Sí</label><label><input type="radio" name="curse" value="0"> No</label></div>
 </div>
+<label><b>¿Qué señal de alerta identificas?</b></label>
+<textarea id="alertSignal" class="field"></textarea>
 <div id="evalFb" class="feedback"><p>Completa las respuestas para obtener una lectura.</p></div>
 </div>
 <div class="nav"><button id="back2" class="btn secondary" type="button">← Anterior</button><button id="next2" class="btn" type="button">Ver lectura →</button></div>
@@ -158,6 +160,8 @@ h3,.card h3,.feedback h3,.resultcard h3{font-size:12pt!important;line-height:1.3
 <textarea id="keep" class="field"></textarea>
 <label><b>¿Qué ajustarías para mejorar el resultado la próxima vez?</b></label>
 <textarea id="adjust" class="field"></textarea>
+<label><b>Mi aprendizaje principal de esta negociación:</b></label>
+<textarea id="learning" class="field"></textarea>
 <div id="finalReading" class="feedback"></div>
 </div>
 <div class="nav"><button id="back3" class="btn secondary" type="button">← Anterior</button><button id="finishBtn" class="btn" type="button">Cerrar módulo →</button></div>
@@ -179,8 +183,8 @@ const prog=document.getElementById('prog');let idx=0,scenario='';
 function go(n){idx=Math.max(0,Math.min(screens.length-1,n));screens.forEach((s,i)=>s.classList.toggle('active',i===idx));prog.style.width=(idx/(screens.length-1)*100)+'%';window.scrollTo(0,0)}
 const scenarios=[
 ['Gana–Pierde / Pierde–Gana','Una parte obtiene beneficios a expensas de la otra. Puede haber desgaste, presión y pérdida de confianza.'],
-['Pierde–Pierde','La negociación se deteriora, rompe el vínculo y no deja aprendizaje ni nuevas alternativas.'],
-['Gana–Gana superficial','Ambas partes obtienen algo, pero con poca profundidad, confianza o combinación de variables.'],
+['Pierde–Pierde','La negociación se deteriora, rompe el vínculo y no deja nuevas alternativas.'],
+['Gana–Gana superficial','Ambas partes obtienen algo, pero el acuerdo queda frágil o poco profundo.'],
 ['Gana–Gana estratégico','Cada parte mejora su situación inicial, supera su NBN y mantiene o fortalece la relación.']
 ];
 resultGrid.innerHTML=scenarios.map((x,i)=>'<div class="resultcard" data-value="'+i+'"><h3>'+x[0]+'</h3><p>'+x[1]+'</p></div>').join('');
@@ -196,7 +200,7 @@ resultGrid.innerHTML=scenarios.map((x,i)=>'<div class="resultcard" data-value="'
   )+'</p>';
 }));
 const qs=[
-'¿Cada negociador superó su NBN?',
+'¿Cada negociador mejoró su NBN?',
 '¿Se atendieron los intereses y necesidades de cada negociador?',
 '¿La relación se fortaleció?',
 '¿La confianza aumentó?',
