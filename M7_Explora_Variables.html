@@ -145,32 +145,53 @@ h3,.card h3,.feedback h3,.resultcard h3{font-size:12pt!important;line-height:1.3
 </section>
 
 <section class="screen">
-<div class="head"><b>1 · Práctica I</b><h2>Analiza las variables de tu negociación</h2><p>Marca dónde cada variable representa fortaleza, debilidad o prioridad para ti y para tu O.C. Busca asimetrías: una variable puede valer poco para ti y mucho para la otra parte, y allí puede existir espacio para crear valor.</p></div>
+<div class="head"><b>1 · Proyecta y pondera</b><h2>Proyecta y pondera tus variables clave</h2><p>Este primer ejercicio te permite formular una hipótesis inicial sobre qué variables tienen mayor peso en tu negociación y cómo pueden influir en tu NBN.</p></div>
+<div class="content wrap">
+<div class="feedback">
+<h3>Ejemplo del libro</h3>
+<p>A continuación encontrarás el ejemplo práctico del libro. En él se seleccionan cinco variables, por eso cada una tiene un peso de 20%. Si fueran 10 variables, cada una tendría un peso de 10%.</p>
+<table class="table" style="margin-top:8px">
+<thead><tr><th>Variables del ejemplo</th><th>Peso %</th><th>Bajo 1-3</th><th>Medio 4-6</th><th>Alto 7-10</th><th>Peso ponderado</th></tr></thead>
+<tbody>
+<tr><td>Entrega inmediata del producto o servicio</td><td>0.20</td><td>2</td><td></td><td></td><td>0.4</td></tr>
+<tr><td>Garantías</td><td>0.20</td><td></td><td>6</td><td></td><td>1.2</td></tr>
+<tr><td>Empaque</td><td>0.20</td><td></td><td></td><td>8</td><td>1.6</td></tr>
+<tr><td>Relación</td><td>0.20</td><td></td><td>4</td><td></td><td>0.8</td></tr>
+<tr><td>Precio</td><td>0.20</td><td></td><td></td><td>7</td><td>1.4</td></tr>
+<tr><td><b>Total</b></td><td><b>100%</b></td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+<p style="margin-top:8px">La variable más importante en el ejemplo es <b>Empaque (1.6)</b>, seguida de <b>Precio (1.4)</b>. Esta información ayuda a elaborar el NBN: si una variable de alto peso se afecta negativamente, la negociación puede dejar de ser conveniente, excepto si se compensa con otra de mayor valor.</p>
+</div>
+<div class="feedback">
+<h3>Ahora trabaja tu negociación</h3>
+<p>Puedes registrar hasta 10 variables. Escribe únicamente las que consideres relevantes. El sistema distribuirá el 100% en partes iguales entre las variables que completes, clasificará automáticamente la calificación como baja, media o alta y calculará el peso ponderado.</p>
+</div>
+<table class="table">
+<thead><tr><th>Variable</th><th>Peso automático</th><th>Calificación 1-10</th><th>Nivel</th><th>Peso ponderado</th></tr></thead>
+<tbody id="weightTable"></tbody>
+<tfoot><tr><td><b>Total</b></td><td id="weightTotal" style="text-align:center;font-weight:700">0%</td><td colspan="3"></td></tr></tfoot>
+</table>
+<div id="weightFeedback" class="feedback"><p>Completa las variables que quieras analizar y asigna a cada una una calificación entera de 1 a 10.</p></div>
+</div>
+<div class="nav"><button class="btn secondary" onclick="back()">← Anterior</button><button class="btn" onclick="calcWeights()">Calcular y continuar →</button></div>
+</section>
+
+<section class="screen">
+<div class="head"><b>2 · Analiza</b><h2>Analiza las variables en la mesa de negociación</h2><p>Ahora amplía tu análisis. La ponderación anterior mostró lo que inicialmente consideras más importante para ti; este cuadro te permitirá observar esas y otras variables desde la perspectiva de ambos negociadores.</p></div>
 <div class="content wrap">
 <table class="table">
 <thead><tr><th>Variable</th><th>Fortaleza<br>para mí</th><th>Fortaleza<br>O.C.</th><th>Debilidad<br>para mí</th><th>Debilidad<br>O.C.</th><th>Prioridad<br>para mí</th><th>Prioridad<br>O.C.</th></tr></thead>
 <tbody id="matrix"></tbody>
 </table>
-<div id="matrixFeedback" class="feedback"><p>Revisa las categorías de variables y marca las condiciones que correspondan. Este análisis amplio te servirá como punto de partida para priorizar en el siguiente paso.</p></div>
+<div id="matrixFeedback" class="feedback"><p>Marca dónde cada variable representa fortaleza, debilidad o prioridad para ti y para tu O.C. Busca asimetrías: una variable puede valer poco para ti y mucho para la otra parte, y allí puede existir espacio para crear valor.</p></div>
 </div>
-<div class="nav"><button class="btn secondary" onclick="back()">← Anterior</button><button class="btn" onclick="analyzeMatrix()">Analizar →</button></div>
+<div class="nav"><button class="btn secondary" onclick="back()">← Anterior</button><button class="btn" onclick="analyzeMatrix()">Analizar y continuar →</button></div>
 </section>
 
 <section class="screen">
-<div class="head"><b>2 · Priorización y ponderación</b><h2>Selecciona y pondera tus variables principales</h2><p>Ahora que tienes una visión amplia de las variables presentes en tu negociación, identifica cuáles requieren mayor atención. Como ejemplo, elige cinco variables importantes. Asigna el mismo peso porcentual a cada una (20%); así la sumatoria será 100. Si en tu negociación trabajas con 10 variables, la carga para cada una sería 10%. Luego califica su importancia de 1 a 10. El sistema calculará automáticamente el peso ponderado.</p></div>
-<div class="content wrap">
-<table class="table">
-<thead><tr><th>Variable</th><th>Peso</th><th>Calificación 1-10</th><th>Peso ponderado</th></tr></thead>
-<tbody id="weightTable"></tbody>
-</table>
-<div id="weightFeedback" class="feedback"><p>La ponderación te ayuda a pasar del mapa amplio de variables a las que merecen mayor atención estratégica. Completa las cinco filas para obtener esa lectura.</p></div>
-</div>
-<div class="nav"><button class="btn secondary" onclick="back()">← Anterior</button><button class="btn" onclick="calcWeights()">Calcular →</button></div>
-</section>
-
-<section class="screen">
-<div class="head"><b>3 · Cruce y mezcla</b><h2>Cruza la información y diseña tu mezcla de variables</h2><p>Utiliza el análisis y la ponderación anteriores para reconocer prioridades, asimetrías y posibles intercambios que generen valor sin poner en riesgo tu NBN.</p></div>
+<div class="head"><b>3 · Cruza y diseña</b><h2>Cruza la información y diseña tu mezcla de variables</h2><p>Compara la ponderación inicial con el análisis de la mesa. Integra ambas lecturas para reconocer prioridades, asimetrías y posibles intercambios que generen valor sin poner en riesgo tu NBN.</p></div>
 <div class="content">
+<label><b>Después de analizar la mesa, ¿cambiarías alguna de las variables que ponderaste inicialmente? ¿Por qué?</b></label><textarea id="reviseInitial" class="field"></textarea>
 <label><b>¿Cuáles son las tres variables de mayor prioridad para ti?</b></label><textarea id="myPriorities" class="field"></textarea>
 <label><b>¿Cuáles parecen ser las tres variables de mayor prioridad para tu O.C.?</b></label><textarea id="ocPriorities" class="field"></textarea>
 <label><b>¿Qué variables tienen alto valor para tu O.C. y bajo costo para ti?</b></label><textarea id="asymmetry" class="field"></textarea>
@@ -247,25 +268,43 @@ function analyzeMatrix(){
  next();
 }
 
-weightTable.innerHTML=[0,1,2,3,4].map(i=>'<tr><td><select id="wv'+i+'"><option value="">Selecciona</option>'+vars.map(v=>'<option>'+v+'</option>').join('')+'</select></td><td style="text-align:center;font-weight:700">20%</td><td><input id="wr'+i+'" type="number" min="1" max="10" step="1"></td><td style="text-align:center;font-weight:700" id="ww'+i+'">0.0</td></tr>').join('');
+weightTable.innerHTML=[0,1,2,3,4,5,6,7,8,9].map(i=>'<tr><td><input id="wv'+i+'" class="smallfield" style="width:100%;padding:6px;border:1px solid #cfd8e3;border-radius:6px;font:11px Montserrat" placeholder="Variable '+(i+1)+'"></td><td style="text-align:center;font-weight:700" id="wp'+i+'">-</td><td><input id="wr'+i+'" type="number" min="1" max="10" step="1"></td><td style="text-align:center" id="wl'+i+'">-</td><td style="text-align:center;font-weight:700" id="ww'+i+'">-</td></tr>').join('');
 
 let weightData=[];
 function calcWeights(){
- let ok=true,selected=new Set(),arr=[];
- for(let i=0;i<5;i++){
-   const name=document.getElementById('wv'+i).value;
-   const rate=Number(document.getElementById('wr'+i).value);
-   if(!name||rate<1||rate>10||!Number.isInteger(rate))ok=false;
-   if(name&&selected.has(name))ok=false;
-   selected.add(name);
-   const w=rate*0.20;
-   document.getElementById('ww'+i).textContent=isFinite(w)?w.toFixed(1):'0.0';
-   arr.push({name,rate,w});
+ const filled=[];
+ for(let i=0;i<10;i++){
+   const name=document.getElementById('wv'+i).value.trim();
+   const raw=document.getElementById('wr'+i).value;
+   if(name || raw!==''){
+     const rate=Number(raw);
+     if(!name || !Number.isInteger(rate) || rate<1 || rate>10){
+       weightFeedback.innerHTML='<h3>Revisa la tabla</h3><p>Cada fila utilizada debe tener una variable y una calificación entera de 1 a 10.</p>';
+       return;
+     }
+     filled.push({i,name,rate});
+   }
  }
- if(!ok){weightFeedback.innerHTML='<h3>Revisa la tabla</h3><p>Selecciona cinco variables diferentes y asigna a cada una una calificación entera de 1 a 10.</p>';return}
- weightData=arr;
- const sorted=[...arr].sort((a,b)=>b.w-a.w);
- weightFeedback.innerHTML='<h3>Lectura de ponderación</h3><p><strong>Mayor peso:</strong> '+sorted[0].name+' ('+sorted[0].w.toFixed(1)+').</p><p>Después aparecen '+sorted.slice(1,3).map(x=>x.name+' ('+x.w.toFixed(1)+')').join(' y ')+'. Si una variable de alto peso se afecta negativamente, revisa si otra de mayor valor puede compensarla sin deteriorar tu NBN.</p>';
+ if(!filled.length){
+   weightFeedback.innerHTML='<h3>Agrega variables</h3><p>Registra al menos una variable para continuar.</p>';
+   return;
+ }
+ const pct=100/filled.length;
+ const factor=pct/100;
+ weightData=filled.map(x=>({...x,pct,w:x.rate*factor,level:x.rate<=3?'Bajo':x.rate<=6?'Medio':'Alto'}));
+ for(let i=0;i<10;i++){
+   document.getElementById('wp'+i).textContent='-';
+   document.getElementById('wl'+i).textContent='-';
+   document.getElementById('ww'+i).textContent='-';
+ }
+ weightData.forEach(x=>{
+   document.getElementById('wp'+x.i).textContent=pct.toFixed(filled.length===3||filled.length===6||filled.length===7||filled.length===9?2:1)+'%';
+   document.getElementById('wl'+x.i).textContent=x.level;
+   document.getElementById('ww'+x.i).textContent=x.w.toFixed(2);
+ });
+ weightTotal.textContent='100%';
+ const sorted=[...weightData].sort((a,b)=>b.w-a.w);
+ weightFeedback.innerHTML='<h3>Lectura de ponderación</h3><p><strong>Mayor peso ponderado:</strong> '+sorted[0].name+' ('+sorted[0].w.toFixed(2)+').</p><p>Esta es una hipótesis inicial para tu negociación. En el siguiente paso ampliarás la mirada al comparar fortalezas, debilidades y prioridades tuyas y del O.C.</p>';
  next();
 }
 
@@ -277,7 +316,8 @@ function finish(){
  sum.textContent=
  'VARIABLES PRIORITARIAS PARA MÍ\n'+(val('myPriorities')|| (priMine.length?priMine.join(', '):'Sin marcar'))+'\n\n'+
  'VARIABLES PRIORITARIAS DEL O.C.\n'+(val('ocPriorities')|| (priOC.length?priOC.join(', '):'Sin marcar'))+'\n\n'+
- 'PONDERACIÓN DE MIS CINCO VARIABLES\n'+(top.length?top.map(x=>x.name+': '+x.rate+'/10 · peso ponderado '+x.w.toFixed(1)).join('\n'):'Sin completar')+'\n\n'+
+ 'PONDERACIÓN INICIAL DE MIS VARIABLES\n'+(top.length?top.map(x=>x.name+': '+x.rate+'/10 · '+x.level+' · peso '+x.pct.toFixed(2)+'% · ponderado '+x.w.toFixed(2)).join('\n'):'Sin completar')+'\n\n'+
+ 'REVISIÓN DESPUÉS DE ANALIZAR LA MESA\n'+val('reviseInitial')+'\n\n'+
  'POSIBLE ASIMETRÍA DE VALOR\n'+val('asymmetry')+'\n\n'+
  'VARIABLE QUE PODRÍA AJUSTAR\n'+val('tradeoff')+'\n\n'+
  'MEZCLA DE VARIABLES PARA PROTEGER O MEJORAR MI NBN\n'+val('mix')+'\n\n'+
