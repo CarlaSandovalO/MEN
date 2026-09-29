@@ -117,23 +117,24 @@ h3,.card h3,.feedback h3,.resultcard h3{font-size:12pt!important;line-height:1.3
 <div class="row"><h1>Explora tu forma de negociar</h1><span class="tag">KIT DEL NEGOCIADOR</span></div>
 <div class="line"></div>
 <p class="lead"><b>Módulo 9 · Estrategia</b></p>
-<p class="lead">Integra lo trabajado y convierte la preparación en una estrategia clara para la mesa.</p>
-<div class="note"><strong>Recuerda:</strong> la estrategia no se improvisa. Es el punto de llegada después de integrar información, reflexión, alternativas y límites.</div>
+<p class="lead">La estrategia no se improvisa: es el punto de llegada del modelo. Integra el recorrido de todo lo estudiado: información confiable, escucha, enfoque, reflexión, creatividad, diferenciación, preguntas, variables y todos los insumos compartidos sobre el negociador y su O.C.</p>
+<div class="note"><strong>Recuerda:</strong> la estrategia se diseña después de integrar información, reflexión, alternativas y límites.</div>
 <button class="btn gold" onclick="go(1)">Comenzar →</button>
 </div>
 </section>
 
 <section class="screen">
-<div class="head"><b>Primer análisis</b><h2>Posibilidades</h2><p>Registra hasta tres O.C.D. y completa solo lo que ya conoces.</p></div>
+<div class="head"><b>Primer análisis</b><h2>Posibilidades</h2><p>Registra hasta tres O.C.D. y valora la claridad del problema y el nivel de confianza en una escala de 1 a 5. Luego incorpora color cerebral y VAKog.</p></div>
 <div class="content">
+<div class="card"><label>Nombre del negociador</label><input class="input" id="myName"></div>
 <div id="ocCards"></div>
-<div id="p1fb" class="feedback"><p><strong>Recuerda:</strong> si la claridad o la confianza son bajas, no avances como si fueran altas. Define qué información debes completar y cómo acercarte al O.C.</p></div>
+<div id="p1fb" class="feedback"><p><strong>Recuerda:</strong> si la claridad del problema es baja, debes definir cómo completar la información. Si la confianza es baja o inexistente, prepara tácticas de acercamiento con prudencia. En color cerebral y VAKog, identifica similitudes y diferencias para aplicar el principio de adaptación.</p></div>
 </div>
 <div class="nav"><button class="btn secondary" onclick="back()">← Anterior</button><button class="btn" onclick="go(2)">Siguiente →</button></div>
 </section>
 
 <section class="screen">
-<div class="head"><b>Segundo análisis</b><h2>Posibilidades ampliadas</h2><p>Agrega profesión, cargo y hábitos para detectar puntos de conexión.</p></div>
+<div class="head"><b>Segundo análisis</b><h2>Posibilidades ampliadas</h2><p>Ahora integra profesión, cargo y hábitos. Estos datos pueden revelar puntos de conexión y facilitar el acercamiento con cada O.C.D.</p></div>
 <div class="content">
 <div class="card"><h3>Mi referencia</h3><div class="grid3">
 <div><label>Profesión / estudios</label><input class="input" id="myProf"></div>
@@ -141,7 +142,7 @@ h3,.card h3,.feedback h3,.resultcard h3{font-size:12pt!important;line-height:1.3
 <div><label>Hábitos relevantes</label><input class="input" id="myHab"></div>
 </div></div>
 <div id="expandedCards"></div>
-<div class="feedback"><p><strong>Recuerda:</strong> las similitudes pueden facilitar confianza y conexión, pero no sustituyen la investigación.</p></div>
+<div class="feedback"><p><strong>Recuerda:</strong> las similitudes pueden facilitar confianza y conexión, pero no sustituyen la investigación ni el análisis estratégico.</p></div>
 </div>
 <div class="nav"><button class="btn secondary" onclick="back()">← Anterior</button><button class="btn" onclick="go(3)">Preparar estrategia →</button></div>
 </section>
@@ -157,13 +158,13 @@ h3,.card h3,.feedback h3,.resultcard h3{font-size:12pt!important;line-height:1.3
 <div class="head"><b>Alternativas</b><h2>Diseña caminos antes de llegar a la mesa</h2><p>Prepara tres alternativas para ti y tres para el O.C. Todas deben mantenerse por encima del NBN correspondiente.</p></div>
 <div class="content">
 <div class="altgrid" id="altGrid"></div>
-<div class="feedback"><p><strong>Recuerda:</strong> inicia con una alternativa favorable para ti y una opción que también genere valor para el O.C. Si ajustas, no renuncies al NBN.</p></div>
+<div class="feedback"><p><strong>Recuerda:</strong> inicia con tu alternativa 1 frente a la clasificada como aceptable para el O.C. y, desde esa primera propuesta, muévete por las diferentes estrategias conforme la teoría lo expone. Conserva caminos de ajuste. Si debes cambiar de alternativa, no renuncies al NBN. La estrategia se prepara para reducir improvisación y aumentar claridad.</p></div>
 </div>
 <div class="nav"><button class="btn secondary" onclick="back()">← Anterior</button><button class="btn" onclick="finish()">Ver síntesis →</button></div>
 </section>
 
 <section class="screen">
-<div class="head"><b>Cierre</b><h2>Mi estrategia antes de la mesa</h2><p>Revisa lo que todavía necesita atención.</p></div>
+<div class="head"><b>Cierre estratégico</b><h2>Mi estrategia antes de la mesa</h2><p>Antes de llegar a la mesa, verifica que tu estrategia sea coherente con la información disponible, las personas involucradas y el nivel de confianza existente.</p></div>
 <div class="content">
 <div class="grid">
 <div><label>Información que debo completar</label><textarea class="field" id="closeInfo"></textarea></div>
@@ -172,7 +173,7 @@ h3,.card h3,.feedback h3,.resultcard h3{font-size:12pt!important;line-height:1.3
 <div><label>Criterio para pausar, ajustar o retirarme</label><textarea class="field" id="closeLimit"></textarea></div>
 </div>
 <div id="sum" class="preview" style="margin-top:10px"></div>
-<div class="feedback"><p><strong>Recuerda:</strong> la estrategia es una guía de preparación, no un formulario rígido. Debe ayudarte a llegar con mayor conciencia y menos improvisación.</p></div>
+<div class="feedback"><p><strong>Recuerda:</strong> la estrategia no es un punto de partida, sino un punto de llegada. Se diseña después de integrar información, reflexión, alternativas y límites.</p></div>
 </div>
 <div class="nav"><button class="btn secondary" onclick="back()">← Anterior</button><span></span></div>
 </section>
@@ -187,7 +188,7 @@ ocCards.innerHTML=[1,2,3].map(i=>'<div class="card"><h3>O.C.D. '+i+'</h3><div cl
 
 expandedCards.innerHTML=[1,2,3].map(i=>'<div class="card"><h3>O.C.D. '+i+'</h3><div class="grid3"><div><label>Profesión / estudios</label><input class="input" id="ocProf'+i+'"></div><div><label>Cargo / actividad</label><input class="input" id="ocRole'+i+'"></div><div><label>Hábitos relevantes</label><input class="input" id="ocHab'+i+'"></div></div></div>').join('');
 
-const areas=[["Problema","¿Qué tipo de problema existe?"],["Objetivo","¿Qué quiero lograr realmente?"],["Intereses","¿Cuáles son mis intereses y cuáles parecen ser los del O.C.?"],["Necesidades","¿Qué necesidades pueden estar detrás de esos intereses?"],["Valores","¿Qué valores pueden influir?"],["Actitud","¿Con qué actitud llego y con cuál parece llegar el O.C.?"],["Gustos","¿Qué preferencias pueden facilitar o dificultar el acuerdo?"],["AVAR","¿Cómo parece procesar la información cada negociador?"],["VAKog","¿Qué canal de comunicación debo priorizar?"],["Profesión y estudios","¿Cómo influyen profesión, estudios y experiencia del O.C.?"],["Hábitos","¿Qué hábitos pueden ayudar a crear un ambiente apropiado?"],["Confianza","¿Cuánta confianza existe con el O.C.?"],["Riesgos","¿Qué puede bloquear la negociación?"],["Criterios objetivos","¿Qué datos o evidencias respaldan mi propuesta?"],["Límites","¿Qué no debo aceptar?"],["Plan B","¿Qué haré si no hay acuerdo?"],["Mensaje inicial","¿Cómo abriré la conversación?"],["Próximo paso","¿Qué acción concreta debería quedar acordada?"]];
+const areas=[["Tipo de problema o situación","¿Qué tipo de problema existe: económico, relacional, técnico, legal, emocional, institucional o mixto?"],["Objetivo","¿Qué quiero lograr realmente con esta negociación?"],["Intereses","¿Cuáles son mis intereses y cuáles parecen ser los del O.C.?"],["Necesidades","¿Qué necesidades pueden estar detrás de esos intereses?"],["Valores","¿Qué valores propios o del O.C. pueden influir?"],["Actitud","¿Con qué actitud llegan y se comunican los integrantes de la mesa?"],["Gustos","¿Qué preferencias personales o formas de trabajar pueden facilitar o dificultar el acuerdo?"],["AVAR","¿Cómo parece procesar la información cada negociador?"],["VAKog","¿Qué canal de comunicación debo priorizar?"],["Profesión y estudios","¿Cómo influyen profesión, estudios y experiencia del O.C. en su forma de pensar y decidir?"],["Hábitos de conducta","¿Qué hábitos conocidos del O.C. pueden ayudar a crear un ambiente apropiado?"],["Nivel de confianza","¿Cuánta confianza existe con el O.C.?"],["Riesgos","¿Qué puede bloquear la negociación?"],["Criterios objetivos","¿Qué datos, normas, contratos, precios, indicadores o precedentes respaldan mi propuesta?"],["Límites y no negociables","¿Qué no debo aceptar por razones éticas, legales, económicas, personales, emocionales o institucionales?"],["Alternativas si no hay acuerdo","¿Cuál es mi plan B si esta negociación no prospera?"],["Mensaje inicial","¿Cómo voy a abrir la conversación de manera clara, respetuosa y estratégica?"],["Próximo paso esperado","¿Qué acción concreta debería quedar acordada al final de la mesa?"]];
 const groups=[
 ['Propósito e INVAG',[0,1,2,3,4,5,6]],
 ['Lectura del O.C.',[7,8,9,10,11]],
